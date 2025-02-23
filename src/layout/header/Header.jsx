@@ -1,12 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router'
 import './Header.css'
+import logo from '../../assets/Logoa.svg'
 
-
-const Heade = () => {
+const Header = () => {
   return (
     <header>
-        <img src="src\assets\Logoa.svg" alt="logo" />
+        <img src={logo} alt="logo" />
         <nav>
             <ul id='navlinks'>
                 <li>
@@ -32,4 +32,4 @@ const Heade = () => {
   )
 }
 
-export default Heade
+export default Header
