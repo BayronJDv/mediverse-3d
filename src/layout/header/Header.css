@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+
+*{
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+
+}
+
+li, button, .isalink{
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+#navlinks {
+    list-style: none;;
+}
+
+#navlinks li{
+    display: inline-block;
+    padding: 0 10px;
+}
+#navlinks li .isalink{
+    transition: all 0.3s ease 0s;
+    color: black;
+}
+#navlinks li .isalink:hover{
+    color: brown;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    position: sticky;
+    background-color: white; /* Ajusta el fondo según tu diseño */
+}
+
+
+img{
+    height: 60px;
+    cursor: pointer;
+}
+
+button{
+    padding: 10px 20px;
+    border: none;
+    background-color: rgb(202, 34, 34);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+button:hover{
+    background-color: rgb(120, 0, 0);
+    color: white;
+}
+
