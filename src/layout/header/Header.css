@@ -5,18 +5,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: white;
-
 }
 
 li, button, .isalink{
     font-weight: 400;
-    font-size: 16px;
-    text-decoration: none;
 }
 
 #navlinks {
-    list-style: none;;
+    list-style: none;
 }
 
 #navlinks li{
@@ -27,33 +23,56 @@ li, button, .isalink{
     transition: all 0.3s ease 0s;
     color: black;
 }
-#navlinks li .isalink:hover{
-    color: brown;
-}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 30px;
     position: sticky;
+    top: 0;
     background-color: white; /* Ajusta el fondo según tu diseño */
 }
 
 
 img{
-    height: 60px;
+    height: 55px;
     cursor: pointer;
 }
 
 button{
     padding: 10px 20px;
     border: none;
-    background-color: rgb(202, 34, 34);
+    background-color: rgb(150, 26, 26);
+    color: white;
     transition: all 0.3s ease 0s;
     cursor: pointer;
 }
 button:hover{
     background-color: rgb(120, 0, 0);
-    color: white;
+    color: thistle;
 }
 
+.isalink {
+    font-size: 18px;
+    color: #000;
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    position: relative;
+}
+
+.isalink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Ajusta la posición del subrayado */
+    width: 100%;
+    height: 2px; /* Grosor del subrayado */
+    background-color: #000; /* Color del subrayado */
+    transform: scaleX(0); /* Inicialmente el subrayado no es visible */
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+/* Cuando el ratón pasa sobre el elemento, el subrayado aparece */
+.isalink:hover::after {
+    transform: scaleX(1); /* El subrayado se expande a su ancho completo */
+}
