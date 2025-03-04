@@ -1,6 +1,13 @@
-div{
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+*{
+    font-family: "Roboto Flex", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#content{
     display: grid;
     min-height: 100dvh;
-    grid-template-rows: 
-    auto 1fr auto;
+    grid-template-rows: auto 1fr auto;
 }

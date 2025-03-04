@@ -1,12 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-*{
-    font-family: "Roboto Flex", sans-serif;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 li, button, .isalink{
     font-weight: 400;
 }
@@ -40,17 +33,50 @@ img{
     cursor: pointer;
 }
 
-button{
+button {
     padding: 10px 20px;
     border: none;
     background-color: rgb(150, 26, 26);
     color: white;
     transition: all 0.3s ease 0s;
     cursor: pointer;
+    /* Añadiendo propiedades base */
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
 }
-button:hover{
-    background-color: rgb(120, 0, 0);
-    color: thistle;
+
+button:hover {
+    /* Efectos visuales adicionales */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de onda al hacer hover */
+button::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: width 0.6s, height 0.6s, opacity 0.6s;
+}
+
+button:hover::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
 }
 
 .isalink {
