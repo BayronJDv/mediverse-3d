@@ -4,8 +4,10 @@ import './Footer.css'
 const Footer = () => {
   return (
     <footer>
-        <h1>footer</h1>
-        <p>derechos reservado perras</p>
+        <div className="footsec">
+        <h3>Mediverse-3d  </h3>
+        <p>&copy; 2025 Mediverse  Todos los derechos reservados.</p>
+        </div>
     </footer>
   )
 }
