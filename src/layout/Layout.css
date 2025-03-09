@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 *{
     font-family: "Roboto Flex", sans-serif;
     box-sizing: border-box;
@@ -10,4 +12,10 @@
     display: grid;
     min-height: 100dvh;
     grid-template-rows: auto 1fr auto;
+}
+
+h1{
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    font-style: normal;
 }
