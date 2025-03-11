@@ -4,8 +4,26 @@ import { useGLTF, useAnimations } from '@react-three/drei'
 export default function Man(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('models-3d/hombre.glb')
-  const { actions } = useAnimations(animations, group)
+  const { actions } = useAnimations(animations, group);
 
+  useEffect(() => {
+    
+    console.log('Animaciones disponibles:', Object.keys(actions))
+    
+    const animationName = Object.keys(actions)[0] // Primera animación disponible
+    
+    if (actions[animationName]) {
+      // Inicia la animación
+      actions[animationName].reset().fadeIn(0.5).play()
+    }
+    
+    return () => {
+      // Detiene la animación cuando el componente se desmonta
+      if (actions[animationName]) {
+        actions[animationName].fadeOut(0.5)
+      }
+    }
+  }, [actions])
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
