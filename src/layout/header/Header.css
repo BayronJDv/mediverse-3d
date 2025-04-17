@@ -1,104 +1,172 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-li, button, .isalink{
-    font-weight: 400;
+body { 
+  margin: 0;
+  font-family: "Roboto Flex", sans-serif; 
 }
 
-#navlinks {
-    list-style: none;
-}
-
-#navlinks li{
-    display: inline-block;
-    padding: 0 10px;
-}
-#navlinks li .isalink{
-    transition: all 0.3s ease 0s;
-    color: black;
+button, .isalink {
+  font-weight: 400;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 30px;
-    position: sticky;
-    top: 0;
-    background-color: white; /* Ajusta el fondo según tu diseño */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000; /* Asegura que el header esté sobre otros elementos */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra opcional para destacar */
+}
+
+header img { /* Ser más específico */
+  height: 55px;
+  cursor: pointer;
+}
+
+/* --- Estilos de Navegación Principal (#navlinks) --- */
+#navlinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex; /* Usar flexbox es generalmente más robusto que inline-block para navs */
+}
+
+#navlinks > li { /* Estilos SOLO para los 'li' hijos DIRECTOS de #navlinks */
+  padding: 0 10px; /* Espaciado horizontal entre elementos del menú principal */
+  position: relative; /* <<< ¡¡LA CLAVE!! Para que .submenu se posicione correctamente */
+}
+
+/* Estilos para TODOS los enlaces NavLink */
+.isalink {
+  font-size: 18px;
+  color: #000;
+  text-decoration: none;
+  position: relative; /* Para el efecto de subrayado ::after */
+  display: block; /* Importante para el padding y el área de hover */
+  padding: 15px 5px; /* Padding vertical y un poco horizontal dentro del enlace */
+  transition: color 0.3s ease, background-color 0.3s ease; /* Transiciones más específicas */
+}
+
+/* Efecto subrayado SOLO para enlaces del menú principal */
+#navlinks > li > .isalink::after {
+  content: '';
+  position: absolute;
+  left: 5px; /* Alinear con el padding del enlace */
+  right: 5px; /* Alinear con el padding del enlace */
+  bottom: 10px; /* Ajusta la posición vertical del subrayado */
+  height: 2px;
+  background-color: rgb(150, 26, 26); /* Usar el color del botón para consistencia */
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  transform-origin: center; /* La animación sale del centro */
+}
+
+#navlinks > li > .isalink:hover::after,
+#navlinks > li > .isalink.active::after { /* Mostrar subrayado en hover y active */
+  transform: scaleX(1);
+}
+
+#navlinks > li > .isalink:hover {
+    color: rgb(150, 26, 26); /* Cambia color del texto en hover (opcional) */
+}
+
+/* --- Estilos del Submenú --- */
+.submenu {
+  list-style: none;
+  padding: 8px 0; /* Padding vertical dentro del contenedor del submenú */
+  margin: 0;
+  position: absolute;
+  top: 100%; /* Justo debajo del 'li' padre */
+  left: 0;  /* Alineado a la izquierda del 'li' padre */
+  background-color: white;
+  min-width: 180px; /* Ancho mínimo */
+  border: 1px solid #eee; /* Borde más suave */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+  z-index: 1001; /* Debe estar por encima del header si es necesario */
+  display: none; /* Oculto por defecto */
+  border-radius: 4px; /* Bordes redondeados (opcional) */
+  opacity: 0; /* Para transición suave */
+  visibility: hidden; /* Para transición suave */
+  transition: opacity 0.2s ease, visibility 0.2s ease; /* Transición de aparición */
+}
+
+/* Estilos para los 'li' DENTRO del submenú */
+.submenu li {
+  display: block; /* Asegura que cada item ocupe su línea */
+  padding: 0; /* Resetea padding por si acaso */
+}
+
+/* Estilos para los enlaces DENTRO del submenú */
+.submenu li .isalink {
+  padding: 10px 20px; /* Padding específico para items del submenú */
+  white-space: nowrap; /* Evita que el texto se parta */
+  font-size: 16px; /* Ligeramente más pequeño (opcional) */
+}
+
+/* Eliminar el efecto de subrayado animado para los enlaces del submenú */
+.submenu li .isalink::after {
+  display: none;
+}
+
+/* Hover para enlaces del submenú */
+.submenu li .isalink:hover,
+.submenu li .isalink.active {
+  background-color: #f5f5f5; /* Fondo sutil en hover/active */
+  color: rgb(150, 26, 26); /* Cambia color del texto (opcional) */
+}
+
+/* --- Mostrar el Submenú (La Lógica Hover) --- */
+#navlinks > li:hover > .submenu {
+  display: block; /* O usa 'flex' si necesitas alinear items dentro */
+  opacity: 1;
+  visibility: visible;
 }
 
 
-img{
-    height: 55px;
-    cursor: pointer;
-}
-
+/* --- Estilos del Botón (Manteniendo los tuyos) --- */
 button {
-    padding: 10px 20px;
-    border: none;
-    background-color: rgb(150, 26, 26);
-    color: white;
-    transition: all 0.3s ease 0s;
-    cursor: pointer;
-    /* Añadiendo propiedades base */
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
+  padding: 10px 20px;
+  border: none;
+  background-color: rgb(150, 26, 26);
+  color: white;
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  font-size: 16px; /* Asegurar tamaño de fuente consistente */
 }
 
 button:hover {
-    /* Efectos visuales adicionales */
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Efecto de onda al hacer hover */
 button::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: width 0.6s, height 0.6s, opacity 0.6s;
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: width 0.6s, height 0.6s, opacity 0.6s;
 }
 
 button:hover::after {
-    width: 200px;
-    height: 200px;
-    opacity: 1;
-}
-
-.isalink {
-    font-size: 18px;
-    color: #000;
-    text-decoration: none; /* Elimina el subrayado por defecto */
-    position: relative;
-}
-
-.isalink::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -5px; /* Ajusta la posición del subrayado */
-    width: 100%;
-    height: 2px; /* Grosor del subrayado */
-    background-color: #000; /* Color del subrayado */
-    transform: scaleX(0); /* Inicialmente el subrayado no es visible */
-    transition: transform 0.3s ease; /* Transición suave */
-}
-
-/* Cuando el ratón pasa sobre el elemento, el subrayado aparece */
-.isalink:hover::after {
-    transform: scaleX(1); /* El subrayado se expande a su ancho completo */
+  width: 200px;
+  height: 200px;
+  opacity: 1;
 }

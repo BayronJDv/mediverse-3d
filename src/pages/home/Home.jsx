@@ -8,6 +8,7 @@ const Home = () => {
   
   return (
     <div className='home'>
+
       <div className="canva">
         <Canvas camera={{ position: [0.5, 3, 1] }}>
           <OrbitControls />
@@ -16,8 +17,10 @@ const Home = () => {
           <Man scale={1.5} />
         </Canvas>
       </div>
-      <div className="elboton">
-        <h1 className='aviso'>Mas alla de los <br></br> lbros: sumergete <br></br> en la realidad 3D <br></br>  de tu cuerpo </h1>
+
+      <div className="seccion-bienvenida">
+        <h1 className='aviso'>Anatomía y Patologías del Hígado: Una Guía 3D Interactiva </h1>
+        <p>Explora el hígado humano con modelos 3D detallados y explicaciones claras. Ideal para reforzar conocimientos en anatomía, fisiología y enfermedades hepáticas.</p>
         <br />
         <button className='botongrande'>Aprende ahora </button>
       </div>
