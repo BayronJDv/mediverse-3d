@@ -13,10 +13,19 @@ const Header = () => {
                     <NavLink  className="isalink" to="/" >Home</NavLink>
                 </li>
                 <li>
-                    <NavLink className="isalink"  to="/Learn" >Learn</NavLink>
+                    <NavLink className="isalink"  to="/Learn" >Learn diseases</NavLink>
                     <ul className='submenu'>
                         <li>
                             <NavLink className="isalink" to="/Learn/Cirrocis">Cirrocis</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="isalink" to="/Learn/Cirrocis">Higado Graso</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="isalink" to="/Learn/Cirrocis">Hepatitis</NavLink>
+                        </li>
+                        <li>
+                            <NavLink className="isalink" to="/Learn/Cirrocis">Cancer de Higado</NavLink>
                         </li>
                     </ul>
                 </li>
