@@ -2,11 +2,11 @@
 import './Cirrocis.css'
 import React from 'react'
 import { useRef } from 'react';
-import { Canvas,useFrame } from '@react-three/fiber'
+import { Canvas, useFrame } from '@react-three/fiber'
 import {
-  OrbitControls,
-  PerspectiveCamera,
-  Environment,
+    OrbitControls,
+    PerspectiveCamera,
+    Environment,
 } from "@react-three/drei";
 import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
 const Cirrocis = () => {
@@ -22,10 +22,10 @@ const Cirrocis = () => {
             <div className="content">
                 <div className="information">
                     <h2>¿ Ques es la cirrocis ?</h2>
-                    
+
                     <p>
                         <br />
-                        La cirrosis hepática es una enfermedad crónica e irreversible caracterizada por la sustitución del tejido hepático sano por tejido cicatricial (fibrosis), lo que impide el funcionamiento normal del hígado. Esta condición se desarrolla como resultado de un daño hepático prolongado y puede ser causada por diversas etiologías, entre las que destacan el consumo excesivo y prolongado de alcohol, la infección crónica por los virus de la hepatitis B o C, la enfermedad del hígado graso no alcohólico, y trastornos hereditarios como la hemocromatosis o la enfermedad de Wilson. A medida que la cirrosis progresa, el tejido cicatricial bloquea el flujo sanguíneo a través del hígado y limita su capacidad para procesar nutrientes, hormonas, medicamentos y toxinas. Además, afecta la producción de proteínas esenciales como la albúmina y factores de coagulación. Esto puede conducir a complicaciones graves como hipertensión portal, ascitis, encefalopatía hepática y un mayor riesgo de carcinoma hepatocelular. El deterioro de la función hepática compromete múltiples sistemas del organismo, afectando de forma sistémica la salud del paciente.
+                        La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
                     </p>
                     <p><br /><strong>Referencias:</strong></p>
                     <ul>
