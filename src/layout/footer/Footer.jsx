@@ -1,31 +1,32 @@
-import React from 'react'
-import './Footer.css'
+import React from 'react';
+import './Footer.css';
+import { NavLink } from 'react-router'
 
 const Footer = () => {
   return (
     <footer className="footer">
-        <div class="footer-left">
-            <h3>Mediverso-3d</h3>
-            <p class="copyright">&copy; 2025 Mediverso-3d</p>
-        </div>
-        <div class="footer-middle">
-            <h3>Enfermedades</h3>
-            <a href="#">Cancer</a>
-            <a href="#">Cirrosis</a>
-            <a href="#">Hígado graso</a>
-            <a href="#">Hepatitis</a>
-        </div>
-        <div class="footer-middle">
-            <h3>Información</h3>
-            <a href="#">Home</a>
-            <a href="#">Sobre Nosotros</a>
-        </div>
-        <div class="footer-right">
-            <h3>Pruebas</h3>
-            <a href="#">Quiz</a>
-        </div>
+      <div className="footer-left">
+        <h3>Mediverso-3d</h3>
+        <p className="copyright">&copy; 2025 Mediverso-3d todos los derechos reservados</p>
+      </div>
+      <div className="footer-middle">
+        <h3>Learn Diseases</h3>
+        <NavLink to="/Learn/CancerHigado">Cancer</NavLink>
+        <NavLink to="/Learn/Cirrocis">Cirrocis</NavLink>
+        <NavLink to="/Learn/Hepatitis">Hepatitis</NavLink>
+        <NavLink to="/Learn/HigadoGraso">Hígado graso</NavLink>
+      </div>
+      <div className="footer-middle">
+        <h3>Information</h3>
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/sobre-nosotros">Abput</NavLink>
+      </div>
+      <div className="footer-right">
+        <h3>Tests</h3>
+        <NavLink to="/quiz">Quiz</NavLink>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

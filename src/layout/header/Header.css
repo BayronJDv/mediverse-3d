@@ -22,7 +22,7 @@ header {
 }
 
 header img { /* Ser más específico */
-  height: 55px;
+  height: 50px;
   cursor: pointer;
 }
 
