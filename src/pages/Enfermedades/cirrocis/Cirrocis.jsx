@@ -1,6 +1,6 @@
 
 import './Cirrocis.css'
-import React from 'react'
+import React, { use } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
     OrbitControls,
@@ -8,10 +8,11 @@ import {
     Environment,
 } from "@react-three/drei";
 import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
+import { useRef } from 'react';
 const Cirrocis = () => {
 
     return (
-        <div>
+        <div className='cirrocis'>
             <div className="banner">
                 <div className="banner-overlay">
                     <p>Enfermedad:</p>
@@ -28,7 +29,6 @@ const Cirrocis = () => {
                     </p>
                     <p><br /><strong>Referencias:</strong></p>
                     <ul>
-                        <li><a href="https://www.mayoclinic.org/diseases-conditions/cirrhosis/symptoms-causes/syc-20351487" target="_blank">Mayo Clinic (2023) – Cirrosis</a></li>
                         <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
                         <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
                     </ul>
@@ -36,7 +36,7 @@ const Cirrocis = () => {
                 </div>
 
                 <div className="model">
-                    <Canvas camera={{ position: [0, 0, 1] }}>
+                    <Canvas camera={{ position: [0, 0, 1] }} >
                         <PerspectiveCamera makeDefault position={[0, 0, 0.8]} />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
                         <ambientLight intensity={1} />

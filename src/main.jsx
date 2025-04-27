@@ -4,10 +4,10 @@ import { BrowserRouter,Route,Routes } from 'react-router'
 import './index.css'
 import Layout from './layout/Layout.jsx'
 import Home from './pages/home/Home.jsx'
-import Cirrocis from './pages/cirrocis/Cirrocis.jsx'
-import HigadoGraso from './pages/HigadoGraso/HigadoGraso.jsx'
-import Hepatitis from './pages/Hepatitis/Hepatitis.jsx'
-import CancerHigado from './pages/CancerHigado/CancerHigado.jsx'
+import Cirrocis from './pages/Enfermedades/cirrocis/Cirrocis.jsx'
+import HigadoGraso from './pages/Enfermedades/HigadoGraso/HigadoGraso.jsx'
+import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
+import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 
 createRoot(document.getElementById('root')).render(
   
