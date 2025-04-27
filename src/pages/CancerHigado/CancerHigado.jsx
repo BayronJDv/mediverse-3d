@@ -1,5 +1,5 @@
 
-import './Cirrocis.css'
+import './CancerHigado.css'
 import React from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
@@ -8,7 +8,8 @@ import {
     Environment,
 } from "@react-three/drei";
 import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
-const Cirrocis = () => {
+
+const CancerHigado = () => {
 
     return (
         <div>
@@ -37,11 +38,6 @@ const Cirrocis = () => {
 
                 <div className="model">
                     <Canvas camera={{ position: [0, 0, 1] }}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 0.8]} />
-                        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-                        <ambientLight intensity={1} />
-                        <directionalLight position={[10, 10, 5]} intensity={1} />
-                        <Environment preset="city" />
                         <HigadoCirrotico scale={1} position={[0, 0, 0]} />
                     </Canvas>
                 </div>
@@ -51,4 +47,4 @@ const Cirrocis = () => {
     )
 }
 
-export default Cirrocis
+export default CancerHigado

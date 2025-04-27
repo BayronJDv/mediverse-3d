@@ -1,22 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 
-footer {
-    background-color: white;
+.footer {
+    background-color: white; 
+    color: black; 
+    padding: 20px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    font-family: "Roboto Flex", sans-serif; 
+    box-sizing: border-box; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5); 
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+    display: flex;
+    flex-direction: column; 
+}
+
+.footer-left h3,
+.footer-middle h3,
+.footer-right h3 {
+    margin-top: 0; 
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.footer-left a,
+.footer-middle a,
+.footer-right a {
     color: black;
-    padding: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 5px;
-    padding: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,1); 
+    text-decoration: none;
+    margin-bottom: 5px;
+    font-size: 0.9em;
 }
 
-.footsec{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    gap: 20px;
-    padding: 0;
-    margin: 0;
+.footer-left a:hover,
+.footer-middle a:hover,
+.footer-right a:hover {
+    text-decoration: underline;
 }
+
+.copyright {
+    font-size: 0.8em;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    color: #191970;
+    font-size: 1.2em;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    opacity: 0.8;
+}
+
+

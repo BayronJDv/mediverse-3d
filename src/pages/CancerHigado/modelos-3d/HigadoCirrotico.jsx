@@ -11,7 +11,7 @@ export default function HigadoCirrotico(props) {
 
   
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} >
         
       <mesh
         castShadow

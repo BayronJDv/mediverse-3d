@@ -4,14 +4,12 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 
-export default function HigadoCirrotico(props) {
+export default function HigadoGraso(props) {
   const { nodes, materials } = useGLTF('/models-3d/cirrotic-liver.glb');
-  const higref = useRef();
-
 
   
   return (
-    <group {...props} dispose={null}>
+    <group {...props} dispose={null} >
         
       <mesh
         castShadow
