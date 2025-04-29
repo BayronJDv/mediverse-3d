@@ -27,9 +27,6 @@ const Home = () => {
   }
 
 
-
-    return null;
-  };
   return (
     <div className='home'>
 
