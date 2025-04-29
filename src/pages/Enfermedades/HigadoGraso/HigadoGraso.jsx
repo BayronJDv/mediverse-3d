@@ -1,5 +1,5 @@
 import React from 'react'
-import './HigadoGraso.css'
+import '../FirstSection.css'
 import { Canvas} from '@react-three/fiber'
 import {
     OrbitControls,
@@ -24,13 +24,13 @@ const HigadoGraso = () => {
                             <br />
                             El hígado graso es una condición en la que se acumulan lípidos en exceso en los hepatocitos, pudiendo ser de origen alcohólico o no alcohólico, y que puede evolucionar a inflamación, fibrosis o cirrosis hepática.
                         </p>
-                        <p><br /><strong>Referencias:</strong></p>
+                        <p><br /><strong>Mas informacion:</strong></p>
                         <ul>
                             <li><a href="https://www.mayoclinic.org/es" target="_blank">Mayo Clinic (2023) – Hígado graso (esteatosis hepática).</a></li>
                             <li><a href="https://medlineplus.gov/spanish" target="_blank">MedlinePlus(2022) –  Enfermedad del hígado graso no alcohólico.</a></li>
                             <li><a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud (OMS). (2023) – Trastornos hepáticos y metabólicos</a></li>
                         </ul>
-    
+                        <button> Ver síntomas → </button>
                     </div>
     
                     <div className="model">

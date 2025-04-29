@@ -1,5 +1,5 @@
 import React from 'react'
-import './Hepatitis.css'
+import '../FirstSection.css'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
     OrbitControls,

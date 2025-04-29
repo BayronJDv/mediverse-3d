@@ -1,5 +1,4 @@
-
-import './Cirrocis.css'
+import '../FirstSection.css'
 import React, { use } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import {
@@ -27,13 +26,14 @@ const Cirrocis = () => {
 
                     <p>
                         <br />
-                        La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
+                        La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre.
                     </p>
-                    <p><br /><strong>Referencias:</strong></p>
+                    <p><br /><strong>Mas Informacion:</strong></p>
                     <ul>
                         <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
                         <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
                     </ul>
+                    <button> Ver síntomas → </button>
 
                 </div>
 
@@ -41,9 +41,8 @@ const Cirrocis = () => {
                     <Canvas camera={{ position: [0, 0, 1] }} shadows={true}> 
                         <PerspectiveCamera makeDefault position={[0, 0, 1]} />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-                        <ambientLight intensity={1} />
+                        <ambientLight intensity={2} />
                         <directionalLight position={[10, 10, 5]} intensity={1} />
-                        <Environment preset="city" />
                         <Suspense fallback={<Loader/>}>
                             <HigadoCirrotico scale={1} position={[0, 0, 0]} />
                         </Suspense>
