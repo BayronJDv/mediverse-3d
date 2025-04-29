@@ -6,9 +6,9 @@ import {
     PerspectiveCamera,
     Environment,
 } from "@react-three/drei";
-import HigadoG from './modelos-3d/HigadoG'
+import HepatitisCell from './modelos-3d/HepatitisCell'
 
-const HigadoHepatico = () => {
+const Hepatitis = () => {
   return (
             <div>
                 <div className="banner">
@@ -35,9 +35,23 @@ const HigadoHepatico = () => {
                     </div>
     
                     <div className="model">
-                        <Canvas camera={{ position: [0, 0, 1] }}>
-                            <HigadoG scale={1} position={[0, 0, 0]} />
-                        </Canvas>
+                    <Canvas camera={{ position: [0.5, 3, 1] }}>
+            
+                        <OrbitControls />
+                        <ambientLight intensity={1.5} />
+                        <directionalLight position={[5, 5, 5]} intensity={2}
+                        castShadow 
+                        shadow-mapSize-width={1024}
+                        shadow-mapSize-height={1024}
+                        shadow-camera-near={0.5}
+                        shadow-camera-far={20}
+                        shadow-camera-left={-10}
+                        shadow-camera-right={10}
+                        shadow-camera-top={10}
+                        shadow-camera-bottom={-10}
+                        />
+                        <HepatitisCell scale={1.5} />
+                    </Canvas>
                     </div>
                 </div>
     
@@ -45,4 +59,4 @@ const HigadoHepatico = () => {
   )
 }
 
-export default HigadoHepatico
+export default Hepatitis
