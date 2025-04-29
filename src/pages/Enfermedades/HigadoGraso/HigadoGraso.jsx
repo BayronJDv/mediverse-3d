@@ -1,12 +1,11 @@
 import React from 'react'
 import './HigadoGraso.css'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas} from '@react-three/fiber'
 import {
     OrbitControls,
-    PerspectiveCamera,
-    Environment,
 } from "@react-three/drei";
-import HigadoG from './modelos-3d/HigadoG'
+import HigadoModel from './modelos-3d/HigadoModel';
+
 
 const HigadoGraso = () => {
   return (
@@ -14,29 +13,31 @@ const HigadoGraso = () => {
                 <div className="banner">
                     <div className="banner-overlay">
                         <p>Enfermedad:</p>
-                        <h1>Cirrocis Hepatica</h1>
+                        <h1>Higado Graso</h1>
                     </div>
                 </div>
                 <div className="content">
                     <div className="information">
-                        <h2>¿ Ques es la cirrosis ?</h2>
+                        <h2>¿ Ques es el Higado graso?</h2>
     
                         <p>
                             <br />
-                            La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
+                            El hígado graso es una condición en la que se acumulan lípidos en exceso en los hepatocitos, pudiendo ser de origen alcohólico o no alcohólico, y que puede evolucionar a inflamación, fibrosis o cirrosis hepática.
                         </p>
                         <p><br /><strong>Referencias:</strong></p>
                         <ul>
-                            <li><a href="https://www.mayoclinic.org/diseases-conditions/cirrhosis/symptoms-causes/syc-20351487" target="_blank">Mayo Clinic (2023) – Cirrosis</a></li>
-                            <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
-                            <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
+                            <li><a href="https://www.mayoclinic.org/es" target="_blank">Mayo Clinic (2023) – Hígado graso (esteatosis hepática).</a></li>
+                            <li><a href="https://medlineplus.gov/spanish" target="_blank">MedlinePlus(2022) –  Enfermedad del hígado graso no alcohólico.</a></li>
+                            <li><a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud (OMS). (2023) – Trastornos hepáticos y metabólicos</a></li>
                         </ul>
     
                     </div>
     
                     <div className="model">
-                        <Canvas camera={{ position: [0, 0, 1] }}>
-                            <HigadoG scale={1} position={[0, 0, 0]} />
+                        <Canvas camera={{ position: [1, 2, 0] }}>
+                            <HigadoModel scale={0.8}/>
+                            <ambientLight intensity={2} />
+                            <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
                         </Canvas>
                     </div>
                 </div>
