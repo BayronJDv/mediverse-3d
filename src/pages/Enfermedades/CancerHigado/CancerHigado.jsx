@@ -1,50 +1,67 @@
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
+import './CancerHigado.css';
+import LiverCancerCell from './modelos-3d/LiverCancerCell.jsx';
 
-import './CancerHigado.css'
-import React from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import {
-    OrbitControls,
-    PerspectiveCamera,
-    Environment,
-} from "@react-three/drei";
-import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
 
 const CancerHigado = () => {
-
-    return (
-        <div>
-            <div className="banner">
-                <div className="banner-overlay">
-                    <p>Enfermedad:</p>
-                    <h1>Cirrocis Hepatica</h1>
-                </div>
-            </div>
-            <div className="content">
-                <div className="information">
-                    <h2>¿ Ques es la cirrosis ?</h2>
-
-                    <p>
-                        <br />
-                        La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
-                    </p>
-                    <p><br /><strong>Referencias:</strong></p>
-                    <ul>
-                        <li><a href="https://www.mayoclinic.org/diseases-conditions/cirrhosis/symptoms-causes/syc-20351487" target="_blank">Mayo Clinic (2023) – Cirrosis</a></li>
-                        <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
-                        <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
-                    </ul>
-
-                </div>
-
-                <div className="model">
-                    <Canvas camera={{ position: [0, 0, 1] }}>
-                        <HigadoCirrotico scale={1} position={[0, 0, 0]} />
-                    </Canvas>
-                </div>
-            </div>
-
+  return (
+    <div className="cancer-page">
+      <div className="banner">
+        <div className="banner-overlay">
+          <p>Enfermedad:</p>
+          <h1>Cáncer de Hígado</h1>
         </div>
-    )
-}
+      </div>
 
-export default CancerHigado
+
+      <div className="content-section">
+        <div className="text-side">
+          <h2>¿Qué es el cáncer de hígado?</h2>
+          <p>
+            El cáncer de hígado es una enfermedad caracterizada por el crecimiento descontrolado de células malignas en el hígado.
+            El tipo más común es el carcinoma hepatocelular (HCC), que suele asociarse a enfermedades crónicas como cirrosis,
+            hepatitis B o C y consumo excesivo de alcohol. Los síntomas pueden incluir dolor abdominal, pérdida de peso,
+            fatiga y ictericia. Detectarlo en etapas tempranas mejora significativamente el pronóstico y las opciones de tratamiento.
+          </p>
+          <div className="button-group">
+            <button className="next-button" onClick={() => window.location.href = "#sintomas"}>
+              Ver síntomas →
+            </button>
+          </div>
+        </div>
+
+
+        <div className="canvas-side">
+          <figure className="canvas-figure">
+            <Canvas camera={{ position: [15, 3, 1] }}>
+              <OrbitControls />
+              <ambientLight intensity={1.5} />
+              <directionalLight
+                position={[5, 5, 5]}
+                intensity={2}
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+                shadow-camera-near={0.5}
+                shadow-camera-far={20}
+                shadow-camera-left={-10}
+                shadow-camera-right={10}
+                shadow-camera-top={10}
+                shadow-camera-bottom={-10}
+              />
+              <LiverCancerCell scale={1.5} />
+            </Canvas>
+            <figcaption className="canvas-caption">
+              Modelo 3D de una célula hepática cancerígena (carcinoma hepatocelular).
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
+export default CancerHigado;

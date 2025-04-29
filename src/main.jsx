@@ -9,8 +9,9 @@ import HigadoGraso from './pages/Enfermedades/HigadoGraso/HigadoGraso.jsx'
 import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
 import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 
+
 createRoot(document.getElementById('root')).render(
-  
+ 
     <BrowserRouter>
       <Layout>
         <Routes>
@@ -19,9 +20,11 @@ createRoot(document.getElementById('root')).render(
           <Route path="/Learn/Cirrocis" element={<Cirrocis />} />
           <Route path="/Learn/HigadoGraso" element={<HigadoGraso />} />
           <Route path="/Learn/Hepatitis" element={<Hepatitis />} />
-          <Route path="/Learn/CancerHigado" element={<HigadoGraso />} />
+          <Route path="/Learn/CancerHigado" element={<CancerHigado />} />
         </Routes>
       </Layout>
     </BrowserRouter>
-  
+ 
 )
+
+
