@@ -1,12 +1,10 @@
 import React from 'react'
 import './HigadoGraso.css'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas} from '@react-three/fiber'
 import {
     OrbitControls,
-    PerspectiveCamera,
-    Environment,
 } from "@react-three/drei";
-import higadoModel from "./modelos-3d/HigadoG"
+import HigadoModel from './modelos-3d/HigadoModel';
 
 
 const HigadoGraso = () => {
@@ -15,7 +13,7 @@ const HigadoGraso = () => {
                 <div className="banner">
                     <div className="banner-overlay">
                         <p>Enfermedad:</p>
-                        <h1>Cirrocis Hepatica</h1>
+                        <h1>Higado Graso</h1>
                     </div>
                 </div>
                 <div className="content">
@@ -28,17 +26,18 @@ const HigadoGraso = () => {
                         </p>
                         <p><br /><strong>Referencias:</strong></p>
                         <ul>
-                            <li><a href="https://www.mayoclinic.org/diseases-conditions/cirrhosis/symptoms-causes/syc-20351487" target="_blank">Mayo Clinic (2023) – Cirrosis</a></li>
-                            <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
-                            <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
+                            <li><a href="https://www.mayoclinic.org/es" target="_blank">Mayo Clinic (2023) – Hígado graso (esteatosis hepática).</a></li>
+                            <li><a href="https://medlineplus.gov/spanish" target="_blank">MedlinePlus(2022) –  Enfermedad del hígado graso no alcohólico.</a></li>
+                            <li><a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud (OMS). (2023) – Trastornos hepáticos y metabólicos</a></li>
                         </ul>
     
                     </div>
     
                     <div className="model">
-                        <Canvas camera={{ position: [0, 0, 1] }}>
-                            <HigadoGraso scale={1} position={[0,0,0]}/>
-                            <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
+                        <Canvas camera={{ position: [1, 2, 0] }}>
+                            <HigadoModel scale={0.8}/>
+                            <ambientLight intensity={2} />
+                            <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
                         </Canvas>
                     </div>
                 </div>
