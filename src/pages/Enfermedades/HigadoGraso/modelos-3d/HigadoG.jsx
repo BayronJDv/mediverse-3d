@@ -4,33 +4,23 @@ import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 
-export default function HigadoGraso(props) {
-  const { nodes, materials } = useGLTF('/models-3d/cirrotic-liver.glb');
+export default function higadoModel(props) {
+  const { nodes, materials } = useGLTF('/models-3d/fatty-liver.glb');
 
   
   return (
-    <group {...props} dispose={null} >
-        
+    <group {...props} dispose={null}>
+    <group name="Scene">
       <mesh
+        name="FattyLiver"
         castShadow
         receiveShadow
-        geometry={nodes.HeapticVein.geometry}
-        material={materials.HeapticVeinMaterial}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.LeftLobe.geometry}
-        material={materials.LeftLobeMaterial}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.RightLobe.geometry}
-        material={materials.RightLobeMaterial}
+        geometry={nodes.FattyLiver.geometry}
+        material={materials.FattyLiver}
       />
     </group>
+  </group>
   )
 }
 
-useGLTF.preload('/models-3d/cirrotic-liver.glb')
+useGLTF.preload('/models-3d/fatty-liver.glb')

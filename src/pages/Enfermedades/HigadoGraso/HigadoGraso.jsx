@@ -6,7 +6,8 @@ import {
     PerspectiveCamera,
     Environment,
 } from "@react-three/drei";
-import HigadoG from './modelos-3d/HigadoG'
+import higadoModel from "./modelos-3d/HigadoG"
+
 
 const HigadoGraso = () => {
   return (
@@ -19,11 +20,11 @@ const HigadoGraso = () => {
                 </div>
                 <div className="content">
                     <div className="information">
-                        <h2>¿ Ques es la cirrosis ?</h2>
+                        <h2>¿ Ques es el Higado graso?</h2>
     
                         <p>
                             <br />
-                            La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
+                            El hígado graso es una condición en la que se acumulan lípidos en exceso en los hepatocitos, pudiendo ser de origen alcohólico o no alcohólico, y que puede evolucionar a inflamación, fibrosis o cirrosis hepática.
                         </p>
                         <p><br /><strong>Referencias:</strong></p>
                         <ul>
@@ -36,7 +37,8 @@ const HigadoGraso = () => {
     
                     <div className="model">
                         <Canvas camera={{ position: [0, 0, 1] }}>
-                            <HigadoG scale={1} position={[0, 0, 0]} />
+                            <HigadoGraso scale={1} position={[0,0,0]}/>
+                            <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
                         </Canvas>
                     </div>
                 </div>
