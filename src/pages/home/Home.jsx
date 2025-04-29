@@ -26,16 +26,6 @@ const Home = () => {
     }
   }
 
-  const CameraTracker = () => {
-    useFrame(() => {
-      if (cameraRef.current) {
-        // Imprimir la posición de la cámara en consola
-        console.log('Posición de la cámara:', cameraRef.current.position);
-      }
-    });
-
-    return null;
-  };
   return (
     <div className='home'>
 
@@ -46,7 +36,6 @@ const Home = () => {
           <ambientLight intensity={1.5} />
           <directionalLight position={[5, 5, 10]} intensity={2} />
           <Man scale={1} hovered={hovered} />
-          <CameraTracker /> {/* Añadir el componente aquí */}
         </Canvas>
       </div>
 
