@@ -1,5 +1,10 @@
+.cirrocis{
+    height: 100%;
+    margin-bottom: 20%;
+}
+
 .banner {
-    background: url('/images/HGbanner1.jpeg') center/cover no-repeat;
+    background: url('/images/bannerimg.png') center/cover no-repeat;
     height: 300px;
     position: relative;  
     box-shadow: none; 
@@ -25,7 +30,7 @@
     flex-direction: row;
     padding-left: 5%;
     padding-right: 5%;
-    
+
 }
 .model{
     width: 50%;
@@ -71,4 +76,7 @@
     text-decoration: none;
     color: #333;
     font-weight: bold;
+}
+.information button{
+    margin-top: 3%;
 }
