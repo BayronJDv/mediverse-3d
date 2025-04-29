@@ -5,7 +5,7 @@ import { useFrame } from '@react-three/fiber'
 
 
 export default function HigadoCirrotico(props) {
-  const { nodes, materials } = useGLTF('/models-3d/cirrotic-liver.glb');
+  const { nodes, materials } = useGLTF('/models-3d/Cirrocis/cirrotic-liver.glb');
   const higref = useRef();
   useFrame(() => {
     if (higref.current) {
@@ -38,4 +38,4 @@ export default function HigadoCirrotico(props) {
   )
 }
 
-useGLTF.preload('/models-3d/cirrotic-liver.glb')
+useGLTF.preload('/models-3d/Cirrocis/cirrotic-liver.glb')
