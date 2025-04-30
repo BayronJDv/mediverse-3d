@@ -9,6 +9,7 @@ import {
 import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
 import { Suspense } from 'react';
 import Loader from '../../../components/Loader';
+import Clights from './Lights/Clights';
 
 const Cirrocis = () => {
 
@@ -40,12 +41,15 @@ const Cirrocis = () => {
                 <div className="model">
                     <Canvas camera={{ position: [0, 0, 1] }} shadows={true}> 
                         <PerspectiveCamera makeDefault position={[0, 0, 1]} />
+                        <Clights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-                        <ambientLight intensity={2} />
-                        <directionalLight position={[10, 10, 5]} intensity={1} />
                         <Suspense fallback={<Loader/>}>
-                            <HigadoCirrotico scale={1} position={[0, 0, 0]} />
+                            <HigadoCirrotico scale={0.9} position={[0, 0, 0]} />
                         </Suspense>
+                        <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
+                        <planeGeometry args={[5, 5]} />
+                        <meshPhongMaterial color="white" />
+                        </mesh>
                     </Canvas>
                 </div>
             </div>

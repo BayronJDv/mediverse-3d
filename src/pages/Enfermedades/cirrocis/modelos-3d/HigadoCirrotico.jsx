@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 
 export default function HigadoCirrotico(props) {
-  const { nodes, materials } = useGLTF('/models-3d/Cirrocis/cirrotic-liver.glb');
-  const higref = useRef();
+  const { nodes, materials } = useGLTF('/models-3d/Cirrocis/cirrotic-liver.glb')
+  const higref = useRef()
+  const [hovered, setHovered] = useState(false)
+
   useFrame(() => {
-    if (higref.current) {
-      higref.current.rotation.y += 0.01; 
+    if (higref.current && !hovered) {
+      higref.current.rotation.y += 0.01
     }
-  });
+  })
 
   return (
-    <group {...props} dispose={null} ref={higref}>
-        
+    <group
+      {...props}
+      dispose={null}
+      ref={higref}
+      castShadow
+      onPointerOver={() => setHovered(true)}   // 👈 activa hover
+      onPointerOut={() => setHovered(false)}   // 👈 desactiva hover
+    >
       <mesh
         castShadow
         receiveShadow
