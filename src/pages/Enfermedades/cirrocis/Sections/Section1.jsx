@@ -12,7 +12,7 @@ const Section1 = () => {
         <div className='cirrocis'>
             <div className="banner">
                 <div className="banner-overlay">
-                    <p>Enfermedad:</p>
+                    <p></p>
                     <h1>Cirrocis Hepatica</h1>
                 </div>
             </div>

@@ -10,6 +10,7 @@ export default function HigadoCirrotico(props) {
   useFrame(() => {
     if (higref.current && !hovered) {
       higref.current.rotation.y += 0.01
+      
     }
   })
 
@@ -21,6 +22,7 @@ export default function HigadoCirrotico(props) {
       castShadow
       onPointerOver={() => setHovered(true)}   // 👈 activa hover
       onPointerOut={() => setHovered(false)}   // 👈 desactiva hover
+      scale={1}
     >
       <mesh
         castShadow
