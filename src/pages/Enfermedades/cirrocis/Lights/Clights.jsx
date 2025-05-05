@@ -12,9 +12,10 @@ const Clights = () => {
     <>
       <ambientLight intensity={0.5} />
       <directionalLight
-        position={[1, 1, 1]}
+        position={[1, 1, -1]}
         intensity={10}
         castShadow
+        color={"#ffae42"}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}

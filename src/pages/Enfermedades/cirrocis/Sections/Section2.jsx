@@ -6,7 +6,7 @@ import ILights from '../Lights/ILights'
 import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
-
+import Staging from '../stages/staging'
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
 
@@ -18,7 +18,7 @@ const Section2 = () => {
                         <PerspectiveCamera makeDefault position={[0, 0.5, 1.5]} />
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-                        
+                        <Staging position={[0, -0.8, 0]} />
                         <Tittle tittle={"Ictericia"} position={[0, 0.6, 0]} />
                         <Ictericia scale={1} position={[0, 0, 0]} />
 
@@ -37,7 +37,7 @@ const Section2 = () => {
                             }}
                         >
                             <sphereGeometry args={[0.03, 10, 10]} />
-                            <meshStandardMaterial color="rgb(150, 26, 26)" />
+                            <meshStandardMaterial color="rgb(2, 2, 2)" />
                             
                         </mesh>
 
@@ -50,7 +50,7 @@ const Section2 = () => {
                         />
 
                         {/* Suelo */}
-                        <mesh receiveShadow={true} rotation={[-Math.PI / 4, 0, 0]} position={[0, -0.2, 0]}>
+                        <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.8, 0]}>
                             <planeGeometry args={[50, 50]} />
                             <meshPhongMaterial color="white" />
                         </mesh>

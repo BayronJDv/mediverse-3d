@@ -10,10 +10,10 @@ const Header = () => {
             <nav>
                 <ul id='navlinks'>
                     <li>
-                        <NavLink className="isalink" to="/" >Home</NavLink>
+                        <NavLink className="isalink" to="/" >Inico</NavLink>
                     </li>
                     <li>
-                        <NavLink className="isalink" to="/Learn" >Learn diseases</NavLink>
+                        <NavLink className="isalink" to="/Learn" >Aprende Enfermedades</NavLink>
                         <ul className='submenu'>
                             <li>
                                 <NavLink className="isalink" to="/Learn/CancerHigado">Cancer de Higado</NavLink>
@@ -34,12 +34,12 @@ const Header = () => {
                         <NavLink className="isalink" to="/Quiz" >Quiz</NavLink>
                     </li>
                     <li>
-                        <NavLink className="isalink" to="/About" >About</NavLink>
+                        <NavLink className="isalink" to="/About" >Sobre Nosotros</NavLink>
                     </li>
 
                 </ul>
             </nav>
-            <button >Sign up</button>
+            <button >Iniciar sesion</button>
 
 
 

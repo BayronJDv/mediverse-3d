@@ -6,12 +6,15 @@ export default function HigadoCirrotico(props) {
   const { nodes, materials } = useGLTF('/models-3d/Cirrocis/cirrotic-liver.glb')
   const higref = useRef()
   const [hovered, setHovered] = useState(false)
+  const [isSpaceDown, setIsSpaceDown] = useState(false);
+
 
   useFrame(() => {
     if (higref.current && !hovered) {
       higref.current.rotation.y += 0.01
       
     }
+
   })
 
   return (

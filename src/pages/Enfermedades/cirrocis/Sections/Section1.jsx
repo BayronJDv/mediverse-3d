@@ -5,6 +5,7 @@ import HigadoCirrotico from '../modelos-3d/HigadoCirrotico'
 import Clights from '../Lights/Clights'
 import { PerspectiveCamera } from '@react-three/drei'
 import '../../FirstSection.css'
+import Staging from '../stages/Staging'
 
 
 const Section1 = () => {
@@ -34,7 +35,7 @@ const Section1 = () => {
                 </div>
 
                 <div className="model">
-                    <Canvas camera={{ position: [0, 0, 1] }} shadows={true}>
+                    <Canvas camera={{ position: [1, 0, 1] }} shadows={true}>
                         <PerspectiveCamera makeDefault position={[0, 0, 1]} />
                         <Clights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
@@ -43,6 +44,7 @@ const Section1 = () => {
                             <planeGeometry args={[5, 5]} />
                             <meshPhongMaterial color="white" />
                         </mesh>
+                        <Staging />
                     </Canvas>
                 </div>
             </div>
