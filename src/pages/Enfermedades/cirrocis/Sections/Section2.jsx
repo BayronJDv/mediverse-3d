@@ -6,7 +6,7 @@ import ILights from '../Lights/ILights'
 import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
-import Staging from '../stages/staging'
+import Staging from '../Stages/Staging'
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
 
