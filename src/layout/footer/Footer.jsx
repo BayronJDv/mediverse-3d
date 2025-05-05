@@ -18,12 +18,12 @@ const Footer = () => {
         <NavLink to="/Learn/HigadoGraso">Hígado graso</NavLink>
       </div>
       <div className="footer-middle">
-        <h3>Information</h3>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/sobre-nosotros">Abput</NavLink>
+        <h3>Informacion</h3>
+        <NavLink to="/">Inicio</NavLink>
+        <NavLink to="/sobre-nosotros">Sobre Nosotros</NavLink>
       </div>
       <div className="footer-right">
-        <h3>Tests</h3>
+        <h3>Examens</h3>
         <NavLink to="/quiz">Quiz</NavLink>
       </div>
     </footer>

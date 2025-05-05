@@ -11,7 +11,7 @@
 #content{
     display: grid;
     min-height: 100dvh;
-    grid-template-rows: auto 100vh auto;
+    grid-template-rows: auto 1fr auto;
 }
 
 h1{
