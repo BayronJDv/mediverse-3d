@@ -1,23 +1,39 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
+import { useKeyboardControls } from '@react-three/drei'
 import Ictericia from '../modelos-3d/Ictericia'
 import ILights from '../Lights/ILights'
 import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
+
+
+
+
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
-
+    const map = useMemo(
+        () => [
+          { name: "forward", keys: ["ArrowUp", "KeyW"] },
+          { name: "back", keys: ["ArrowDown", "KeyS"] },
+          { name: "left", keys: ["ArrowLeft", "KeyA"] },
+          { name: "right", keys: ["ArrowRight", "KeyD"] },
+          { name: "sleep", keys: ["KeyC"] },
+          { name: "jump", keys: ["Space"] },
+        ],
+        []
+      );
+    
     return (
         <div className='cirrocis'>
             <div className="content">
                 <div className="model2">
                     <Canvas shadows={true} onPointerMissed={() => setTooltipVisible(false)}>
-                        <PerspectiveCamera makeDefault position={[0, 0.5, 1.5]} />
+                        <PerspectiveCamera makeDefault position={[0, 0.5, 1.2]} />
                         <ILights />
-                        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
+                        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
                         <Staging position={[0, -0.8, 0]} />
                         <Tittle tittle={"Ictericia"} position={[0, 0.6, 0]} />
                         <Ictericia scale={1} position={[0, 0, 0]} />
@@ -37,7 +53,7 @@ const Section2 = () => {
                             }}
                         >
                             <sphereGeometry args={[0.03, 10, 10]} />
-                            <meshStandardMaterial color="rgb(2, 2, 2)" />
+                            <meshStandardMaterial color="rgb(127, 27, 27)" />
                             
                         </mesh>
 
@@ -49,8 +65,11 @@ const Section2 = () => {
                             distanceFactor={0.8}
                         />
 
+                        <Tittle tittle={"cirrocis"} position={[0.25, -0.25, 0]} />
+                        <Tittle tittle={"Normal"} position={[-0.25, -0.25, 0]} />
+
                         {/* Suelo */}
-                        <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.8, 0]}>
+                        <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
                             <planeGeometry args={[50, 50]} />
                             <meshPhongMaterial color="white" />
                         </mesh>
