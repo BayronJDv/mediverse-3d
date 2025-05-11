@@ -11,7 +11,7 @@ const Footer = () => {
         <p className="copyright">&copy; 2025 Mediverso-3d todos los derechos reservados</p>
       </div>
       <div className="footer-middle">
-        <h3>Learn Diseases</h3>
+        <h3>Aprende enfermedades</h3>
         <NavLink to="/Learn/CancerHigado">Cancer</NavLink>
         <NavLink to="/Learn/Cirrocis">Cirrocis</NavLink>
         <NavLink to="/Learn/Hepatitis">Hepatitis</NavLink>

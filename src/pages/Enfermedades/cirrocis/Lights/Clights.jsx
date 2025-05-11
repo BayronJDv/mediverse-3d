@@ -24,7 +24,7 @@ const Clights = () => {
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
       />     
-      {/*<Environment preset= "city"/>*/}
+      <Environment preset= "city"/>
     </>
   )
 }

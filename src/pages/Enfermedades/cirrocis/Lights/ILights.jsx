@@ -10,10 +10,10 @@ const ILights = () => {
   return (
     
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={1} />
       <directionalLight
         position={[0, 0, 3]}
-        intensity={1}
+        intensity={2}
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
@@ -22,10 +22,8 @@ const ILights = () => {
         shadow-camera-right={5}
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
-      />     
-      <pointLight position={[0.40, 0.4, 0]} intensity={0.3} castShadow />
-      {/*<Environment preset= "city"/>*/}
-      <directionalLight
+      />
+            <directionalLight
         position={[1, 1, -1]}
         intensity={10}
         castShadow
@@ -37,7 +35,10 @@ const ILights = () => {
         shadow-camera-right={5}
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
-      />     
+      />   
+      <pointLight position={[0.40, 0.5, 0]} intensity={0.3} castShadow />
+      <Environment preset= "city"/>
+  
     </>
   )
 }

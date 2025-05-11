@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { Canvas } from '@react-three/fiber'
-import { OrbitControls } from '@react-three/drei'
 import HigadoCirrotico from '../modelos-3d/HigadoCirrotico'
 import Clights from '../Lights/Clights'
 import { PerspectiveCamera } from '@react-three/drei'
 import '../../FirstSection.css'
 import Staging from '../stages/Staging'
-
+import { KeyboardControls } from "@react-three/drei";
+import Controls from '../Controls/Controls'
 
 const Section1 = () => {
+    const map = useMemo(
+        () => [
+            { name: "forward", keys: ["ArrowUp", "KeyW"] },
+            { name: "back", keys: ["ArrowDown", "KeyS"] },
+        ],
+        []
+    );
     return (
         <div className='cirrocis'>
             <div className="banner">
@@ -35,21 +42,24 @@ const Section1 = () => {
                 </div>
 
                 <div className="model">
-                    <Canvas camera={{ position: [1, 0, 1] }} shadows={true}>
+                    <KeyboardControls map={map} >
+                    <Canvas shadows={true}>
                         <PerspectiveCamera makeDefault position={[0, 0, 1]} />
                         <Clights />
-                        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
                         <HigadoCirrotico scale={1} position={[0, 0, 0]} />
                         <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
                             <planeGeometry args={[5, 5]} />
                             <meshPhongMaterial color="white" />
                         </mesh>
                         <Staging />
+                        <Controls />
                     </Canvas>
+                    </KeyboardControls>
                 </div>
             </div>
 
         </div>
+
     )
 }
 

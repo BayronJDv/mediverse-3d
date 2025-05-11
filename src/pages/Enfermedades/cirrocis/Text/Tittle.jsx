@@ -10,7 +10,7 @@ const Tittle = ({tittle,position}) => {
         anchorX={"center"}
         anchorY={"center"}
         fontSize={0.15}
-        font="/fonts/WhiteOnBlack.ttf"
+        font="/fonts/Tiling.ttf"
         >
             {tittle}
         </Text>
