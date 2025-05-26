@@ -8,26 +8,21 @@ import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
-
+import CameraDebugger from '../../../../components/CameraDebugger'
 
 
 
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
-    const map = useMemo(
-        () => [
-          { name: "forward", keys: ["ArrowUp", "KeyW"] },
-          { name: "back", keys: ["ArrowDown", "KeyS"] },
-          { name: "left", keys: ["ArrowLeft", "KeyA"] },
-          { name: "right", keys: ["ArrowRight", "KeyD"] },
-          { name: "sleep", keys: ["KeyC"] },
-          { name: "jump", keys: ["Space"] },
-        ],
-        []
-      );
-    
+
     return (
         <div className='cirrocis'>
+            <div className="banner">
+                <div className="banner-overlay">
+                    <p></p>
+                    <h1>Cirrocis Hepatica</h1>
+                </div>
+            </div>
             <div className="content">
                 <div className="model2">
                     <Canvas shadows={true} onPointerMissed={() => setTooltipVisible(false)}>
@@ -54,7 +49,7 @@ const Section2 = () => {
                         >
                             <sphereGeometry args={[0.03, 10, 10]} />
                             <meshStandardMaterial color="rgb(127, 27, 27)" />
-                            
+
                         </mesh>
 
                         {/* Tooltip condicional */}
