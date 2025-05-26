@@ -1,13 +1,14 @@
-import React, { Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, useGLTF, Html } from '@react-three/drei'
+import React from 'react'
+import './Loader.css'
 
-export default function Loader() {
+
+const Loader = () => {
   return (
-    <Html center>
-      <div style={{ fontSize: '24px', color: 'white' }}>
-        Cargando...
-      </div>
-    </Html>
+    <div className="loader-container">
+      <div className="loader-spinner"></div>
+      <p>Cargando sección...</p>
+    </div>
   )
 }
+
+export default Loader
