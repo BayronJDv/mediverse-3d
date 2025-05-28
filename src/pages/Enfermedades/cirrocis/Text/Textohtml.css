@@ -1,6 +1,6 @@
 
 .card {
-    height: 360px;
+    height: fit-content;
     width: 350px;
     backdrop-filter: blur(18px) saturate(176%);
     -webkit-backdrop-filter: blur(18px) saturate(176%);

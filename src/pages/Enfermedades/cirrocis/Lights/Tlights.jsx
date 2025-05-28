@@ -4,25 +4,24 @@ const Clights = () => {
 
 return (
     <>
-        <ambientLight intensity={2} />
+        <ambientLight intensity={1} />
         <spotLight
-            color="red"
-            intensity={3}
-            position={[-2, 5, 0]}
-            angle={0.5}
-            penumbra={0.5}
+            color={'red'}
+            position={[0.2, 0.5, 0.6]}
+            angle={Math.PI / 4}
+            penumbra={1}
+            intensity={8}
             castShadow
-            target-position={[-2, 0, 0]}
-        />
-        <spotLight
-            color="green"
-            intensity={3}
-            position={[2, 5, 0]}
-            angle={0.5}
-            penumbra={0.5}
+            />
+           <spotLight
+            color={'white'}
+            position={[3, 0.5, 0.6]}
+            angle={Math.PI / 4}
+            penumbra={1}
+            intensity={8}
             castShadow
-            target-position={[2, 0, 0]}
-        />
+            />
+
         {/*<Environment preset="city" />*/}
     </>
 )
