@@ -2,6 +2,7 @@ import React, { Suspense, useState } from 'react';
 import Section1 from './Sections/Section1';
 const Section2 = React.lazy(() => import('./Sections/Section2'));
 const Section3 = React.lazy(() => import('./Sections/Section3'));
+const Section4 = React.lazy(() => import('./Sections/Section4'));
 import './Cirrocis.css';
 import Loader from '../../../components/Loader'
 
@@ -33,6 +34,15 @@ const Cirrocis = () => {
             <Section3 />
           </Suspense>
         );
+      case 4:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section4 />
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior (tratamiento)
+            </button>
+          </Suspense>
+        );
       default:
         return null;
     }
@@ -52,7 +62,7 @@ const Cirrocis = () => {
               Anterior
             </button>
           )}
-          {activeSection < 3 && (
+          {activeSection < 4 && (
             <button onClick={() => setActiveSection(activeSection + 1)}>
               Siguiente
             </button>

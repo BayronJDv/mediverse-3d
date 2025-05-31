@@ -1,10 +1,12 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { useGLTF, useTexture } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 export default function TratamientoLiver(props) {
   const { nodes, materials } = useGLTF('/models-3d/Cirrocis/Tratamiento-liver.glb')
   const meshRef = useRef()
+  const groupRef = useRef()
   const [isSick, setIsSick] = useState(true)
 
   const textures = useTexture({
@@ -16,7 +18,6 @@ export default function TratamientoLiver(props) {
   })
 
   useEffect(() => {
-    // Configurar propiedades de las texturas
     Object.entries(textures).forEach(([key, tex]) => {
       if (tex) {
         tex.flipY = false
@@ -35,11 +36,18 @@ export default function TratamientoLiver(props) {
     }
   }, [isSick, textures])
 
+  // Animación de flotación
+  useFrame(({ clock }) => {
+    if (groupRef.current) {
+      groupRef.current.position.y = Math.sin(clock.getElapsedTime() * 1.2) * 0.06
+    }
+  })
+
   const handlePointerEnter = () => setIsSick(false)
   const handlePointerLeave = () => setIsSick(true)
 
   return (
-    <group {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null}>
       <mesh
         ref={meshRef}
         castShadow
