@@ -21,6 +21,7 @@ header {
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra opcional para destacar */
 }
 
+
 header img { /* Ser más específico */
   height: 50px;
   cursor: pointer;
@@ -169,4 +170,15 @@ button:hover::after {
   width: 200px;
   height: 200px;
   opacity: 1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* o usa margin-right en <p> si prefieres control más fino */
+}
+
+.user-info p {
+  margin: 0;
+  font-size: 16px;
 }

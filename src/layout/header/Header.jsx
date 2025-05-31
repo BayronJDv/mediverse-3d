@@ -1,9 +1,18 @@
-import React from 'react'
 import { NavLink } from 'react-router'
 import './Header.css'
 import logo from '../../assets/Logoa.svg'
+import { userAtom } from '../../stores/userAtom'
+import { auth } from '../../firebase.config'
+import { signOut } from 'firebase/auth'
+import { loginWithGoogle } from '../../utils/auth'
+import { useAtom } from 'jotai'
+import { Navigate } from 'react-router'
 
 const Header = () => {
+
+    const [user, setUser] = useAtom(userAtom);
+
+
     return (
         <header>
             <img src={logo} alt="logo" />
@@ -39,11 +48,17 @@ const Header = () => {
 
                 </ul>
             </nav>
-            <button >Iniciar sesion</button>
+            {user == null ? (
+                <button onClick={loginWithGoogle}>Iniciar sesión</button>
 
+            ) : (
+                <div className="user-info">
+                    <img src='/images/ficon.png' alt="User Avatar" />
+                    <p>{user.email.split('@')[0]}</p>
+                    <button onClick={() => signOut(auth)}>Cerrar sesión</button>
+                </div>
 
-
-
+            )}
 
 
         </header>

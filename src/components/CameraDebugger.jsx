@@ -14,8 +14,8 @@ function CameraDebugger() {
       const dir = new THREE.Vector3()
       camera.getWorldDirection(dir)
 
-      console.log('📍 Cámara posición:', pos.x.toFixed(2), pos.y.toFixed(2), pos.z.toFixed(2))
-      console.log('👁️ Cámara dirección:', dir.x.toFixed(2), dir.y.toFixed(2), dir.z.toFixed(2))
+      console.log('📍 Cámara posición:', pos.x.toFixed(3), pos.y.toFixed(3), pos.z.toFixed(3))
+      console.log('👁️ Cámara dirección:', dir.x.toFixed(3), dir.y.toFixed(3), dir.z.toFixed(3))
 
       lastPrintTime.current = currentTime
     }

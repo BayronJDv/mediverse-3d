@@ -9,7 +9,7 @@ import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
 import CameraDebugger from '../../../../components/CameraDebugger'
-
+import CameraDefault from '../../../../components/CameraDefault'
 
 
 const Section2 = () => {
@@ -26,7 +26,11 @@ const Section2 = () => {
             <div className="content">
                 <div className="model2">
                     <Canvas shadows={true} onPointerMissed={() => setTooltipVisible(false)}>
-                        <PerspectiveCamera makeDefault position={[0, 0.5, 1.2]} />
+                        <CameraDebugger />
+                        <CameraDefault
+                            position={[0.29, 0.06, 1.35]}
+                            lookAt={[-0.21 -0.04 -0.98]}
+                        />
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
                         <Staging position={[0, -0.8, 0]} />
