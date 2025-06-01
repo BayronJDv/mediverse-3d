@@ -16,7 +16,7 @@ import TratamientoLiver from '../modelos-3d/TratamientoLiver'
 const Section3 = () => {
     const [tooltipVisible1, setTooltipVisible1] = useState(false)
     const [tooltipVisible2, setTooltipVisible2] = useState(false)
-    const [cameraPosition, setCameraPosition] = useState([0.025, -0.193, 2.665])
+    const [cameraPosition, setCameraPosition] = useState([0.025, -0.193, 2.0])
     const [cameraLookAt, setCameraLookAt] = useState([0.047, -0.061, -0.997])
     const handleModelclike = () => {
         setCameraPosition([0.03, 0.35, 1.79])
