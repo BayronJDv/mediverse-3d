@@ -8,18 +8,18 @@ export default function PushUpMen(props) {
     const { nodes, materials, animations } = useGLTF('/models-3d/Cirrocis/Cares-model.glb')
     const { actions, names } = useAnimations(animations, group)
     const [, get] = useKeyboardControls();
-      useFrame(() => {
-        const {forward,back} = get()
+    useFrame(() => {
+        const { forward, back } = get()
 
         if (forward) {
-          group.current.scale.multiplyScalar(1.01)
+            group.current.scale.multiplyScalar(1.01)
         }
         if (back) {
-          group.current.scale.multiplyScalar(0.99)
+            group.current.scale.multiplyScalar(0.99)
         }
         const pressed = get().back
-    
-      })
+
+    })
 
     useEffect(() => {
         if (names.length > 0 && actions[names[0]]) {
@@ -34,53 +34,69 @@ export default function PushUpMen(props) {
     }, [actions, names])
 
     return (
-        <group ref={group} {...props} dispose={null}>
+        <group ref={group} {...props} dispose={null} castShadow={true} receiveShadow={true}>
             <group name="Scene">
                 <group name="Push-up-men" scale={0.029}>
                     <group name="Object_4">
                         <skinnedMesh
                             name="EyeL"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.EyeL.geometry}
                             material={materials.EyeMaterial2}
                             skeleton={nodes.EyeL.skeleton}
                         />
                         <skinnedMesh
                             name="EyeR"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.EyeR.geometry}
                             material={materials.EyeMaterial}
                             skeleton={nodes.EyeR.skeleton}
                         />
                         <skinnedMesh
                             name="Hair"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.Hair.geometry}
                             material={materials.HairMaterial}
                             skeleton={nodes.Hair.skeleton}
                         />
                         <skinnedMesh
                             name="Head"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.Head.geometry}
                             material={materials.HeadMaterial}
                             skeleton={nodes.Head.skeleton}
                         />
                         <skinnedMesh
                             name="Pants"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.Pants.geometry}
                             material={materials.PantsMaterial}
                             skeleton={nodes.Pants.skeleton}
                         />
                         <skinnedMesh
                             name="Shirt"
+                            castShadow
+                            receiveShadow
                             geometry={nodes.Shirt.geometry}
                             material={materials.ShirtMaterial}
                             skeleton={nodes.Shirt.skeleton}
                         />
                         <skinnedMesh
+                            castShadow
+                            receiveShadow
                             name="Shoes"
                             geometry={nodes.Shoes.geometry}
                             material={materials.ShoesMaterial}
                             skeleton={nodes.Shoes.skeleton}
                         />
                         <skinnedMesh
+                            castShadow
+                            receiveShadow
                             name="Skin"
                             geometry={nodes.Skin.geometry}
                             material={materials.SkinMaterial}

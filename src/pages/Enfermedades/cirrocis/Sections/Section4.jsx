@@ -1,13 +1,15 @@
-import React, { useMemo } from 'react'
+import React, { useMemo,useState } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import HigadoCirrotico from '../modelos-3d/HigadoCirrotico'
-import Clights from '../Lights/Clights'
+import PLights from '../Lights/PLights'
 import { PerspectiveCamera } from '@react-three/drei'
-import './Section4.css' 
+import './Section4.css'
 import Staging4 from '../stages/Staging4'
 import { KeyboardControls } from "@react-three/drei";
 import Controls from '../Controls/Controls'
 import PushUpMen from '../modelos-3d/PushUpMen'
+import CameraDebugger from '../../../../components/CameraDebugger'
+import CameraDefault from '../../../../components/CameraDefault'
+
 
 const Section4 = () => {
     const map = useMemo(
@@ -18,6 +20,8 @@ const Section4 = () => {
         ],
         []
     );
+    const [cameraPosition, setCameraPosition] = useState([1.241, 0.7, 1.770])
+    const [cameraLookAt, setCameraLookAt] = useState([-0.570, 0.5, -0.816])
 
 
     return (
@@ -65,11 +69,17 @@ const Section4 = () => {
                 <div className="model">
                     <KeyboardControls map={map} >
                         <Canvas shadows={true}>
-                            <PerspectiveCamera makeDefault position={[0, 0, 1]} />
-                            <Clights />
+                            <CameraDefault position={cameraPosition} lookAt={cameraLookAt} />
+                            <CameraDebugger />
+                            <PLights />
+                            {/* Piso circular verde */}
+                            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow={true}>
+                                <circleGeometry args={[10, 64]} />
+                                <meshPhongMaterial color="white" />
+                            </mesh>
                             <PushUpMen />
                             <Staging4 />
-                            <Controls />
+                            <Controls enableZoom={false} />
                         </Canvas>
                     </KeyboardControls>
                 </div>

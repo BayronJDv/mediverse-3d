@@ -43,7 +43,7 @@ const Section1 = () => {
                 <div className="model">
                     <KeyboardControls map={map} >
                     <Canvas shadows={true}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 1]} />
+                        <PerspectiveCamera makeDefault position={[1, 0.4, 0.4]} />
                         <Clights />
                         <HigadoCirrotico scale={1} position={[0, 0, 0]} />
                         <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>

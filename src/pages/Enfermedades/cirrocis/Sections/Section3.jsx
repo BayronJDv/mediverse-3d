@@ -18,10 +18,7 @@ const Section3 = () => {
     const [tooltipVisible2, setTooltipVisible2] = useState(false)
     const [cameraPosition, setCameraPosition] = useState([0.025, -0.193, 2.0])
     const [cameraLookAt, setCameraLookAt] = useState([0.047, -0.061, -0.997])
-    const handleModelclike = () => {
-        setCameraPosition([0.03, 0.35, 1.79])
-        setCameraLookAt([0.03, -0.24, -0.97])
-    }
+
 
     return (
         <div className='cirrocis'>
@@ -53,7 +50,6 @@ const Section3 = () => {
                         <TratamientoRed position={[0.2, -0.45, 0]} scale={1.5} 
                         onClick={(e) => {
                                e.stopPropagation()
-                               handleModelClick()
                             }}                                
                         />
                         <TratamientoLiver position={[1.35, -0.1, 0]} scale={1.5}/>

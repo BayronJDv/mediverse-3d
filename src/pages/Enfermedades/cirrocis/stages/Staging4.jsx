@@ -18,11 +18,11 @@ const Staging4 = () => {
       "pz.png",
       "nz.png",
       ]}
-      path="staging/cubemaps/park/"
+      path="/staging/cubemaps/park/"
       ground={{
-      height: 60,
+      height: 20,
       radius: 100,
-      scale: 4,
+      scale: 5,
       }}
       background
     />
