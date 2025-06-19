@@ -4,12 +4,12 @@ import { useFrame } from '@react-three/fiber';
 
 
 // Pre-cargar el modelo GLTF de cáncer de hígado
-useGLTF.preload('/models-3d/LiverCancerCell.glb');
+useGLTF.preload('/models-3d/Cancer/LiverCancerCell.glb');
 
 
 export default function LiverCancerCell(props) {
   const group = useRef();
-  const { scene, animations } = useGLTF('/models-3d/LiverCancerCell.glb');
+  const { scene, animations } = useGLTF('/models-3d/Cancer/LiverCancerCell.glb');
   const { actions } = useAnimations(animations, group);
 
 
