@@ -25,7 +25,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/Learn/CancerHigado" element={<CancerHigado />} />
         <Route path="/Patologias" element={<Patologias />} />
         <Route
-          path="/quiz"
+          path="/Quiz"
           element={
             <ProtectedRoute>
               <Quiz />
