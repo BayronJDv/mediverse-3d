@@ -4,7 +4,7 @@ import { useRef } from 'react'
 import { DirectionalLightHelper } from 'three'
 import { useHelper } from '@react-three/drei'
 
-const Clights = () => {
+const PLights = () => {
   const lightDicRef = useRef()
   //useHelper(lightDicRef, DirectionalLightHelper, { color: "red" })
   return (
@@ -12,7 +12,8 @@ const Clights = () => {
     <>
       <ambientLight intensity={1} />
       <directionalLight
-        position={[1, 1, -1]}
+        ref={lightDicRef}
+        position={[1, 1, 1]}
         intensity={3}
         castShadow
         color={"#ffae42"}
@@ -24,9 +25,8 @@ const Clights = () => {
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
       />     
-      <Environment preset= "city"/>
     </>
   )
 }
 
-export default Clights
+export default PLights

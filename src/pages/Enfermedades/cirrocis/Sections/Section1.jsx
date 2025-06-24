@@ -37,14 +37,13 @@ const Section1 = () => {
                         <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
                         <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
                     </ul>
-                    <button>Ver Sintomatologia </button>
 
                 </div>
 
                 <div className="model">
                     <KeyboardControls map={map} >
                     <Canvas shadows={true}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 1]} />
+                        <PerspectiveCamera makeDefault position={[1, 0.4, 0.4]} />
                         <Clights />
                         <HigadoCirrotico scale={1} position={[0, 0, 0]} />
                         <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>

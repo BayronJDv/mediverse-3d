@@ -8,30 +8,29 @@ import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
-
-
+import CameraDebugger from '../../../../components/CameraDebugger'
+import CameraDefault from '../../../../components/CameraDefault'
 
 
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
-    const map = useMemo(
-        () => [
-          { name: "forward", keys: ["ArrowUp", "KeyW"] },
-          { name: "back", keys: ["ArrowDown", "KeyS"] },
-          { name: "left", keys: ["ArrowLeft", "KeyA"] },
-          { name: "right", keys: ["ArrowRight", "KeyD"] },
-          { name: "sleep", keys: ["KeyC"] },
-          { name: "jump", keys: ["Space"] },
-        ],
-        []
-      );
-    
+
     return (
         <div className='cirrocis'>
+            <div className="banner">
+                <div className="banner-overlay">
+                    <p></p>
+                    <h1>Cirrocis Hepatica</h1>
+                </div>
+            </div>
             <div className="content">
                 <div className="model2">
                     <Canvas shadows={true} onPointerMissed={() => setTooltipVisible(false)}>
-                        <PerspectiveCamera makeDefault position={[0, 0.5, 1.2]} />
+                        <CameraDebugger />
+                        <CameraDefault
+                            position={[0.29, 0.06, 1.35]}
+                            lookAt={[-0.21 -0.04 -0.98]}
+                        />
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
                         <Staging position={[0, -0.8, 0]} />
@@ -54,7 +53,7 @@ const Section2 = () => {
                         >
                             <sphereGeometry args={[0.03, 10, 10]} />
                             <meshStandardMaterial color="rgb(127, 27, 27)" />
-                            
+
                         </mesh>
 
                         {/* Tooltip condicional */}
