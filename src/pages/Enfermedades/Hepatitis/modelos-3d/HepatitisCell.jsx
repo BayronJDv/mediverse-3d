@@ -2,14 +2,14 @@ import React, { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 
-export default function HepatitisCell(props) {
+export default function HepatitisCell({ animate = false, ...props }) {
   const groupRef = useRef()
   const { nodes, materials } = useGLTF('/models-3d/Hepatitis/HepatitisCell.glb')
 
-  // Añadir rotación animada
+  // Añadir rotación solo si animate es true
   useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += 0.005
+    if (animate && groupRef.current) {
+      groupRef.current.rotation.y += 0.05
     }
   })
 

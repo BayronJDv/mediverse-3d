@@ -5,9 +5,12 @@ import {
   OrbitControls,
   PerspectiveCamera,
   Environment,
-} from "@react-three/drei";import Man from './modelos-3d/Man'
+} from "@react-three/drei";import Man from './modelos-3d/Man' 
+import { useNavigate } from 'react-router-dom';
 
-const Home = () => {
+
+const Home = () => { 
+  const navigate = useNavigate();
   const [hovered, setHovered] = useState(false) // <-- ESTADO NUEVO
   const cameraRef = useRef()
   const handleHoverEnter = () => {
@@ -45,7 +48,8 @@ const Home = () => {
         <p>Explora el hígado humano con modelos 3D detallados y explicaciones claras. Ideal para reforzar conocimientos en anatomía, fisiología y enfermedades hepáticas.</p>
         <br />
         <button 
-          className='botongrande'
+          className='botongrande' 
+          onClick={() => navigate('/Patologias')}
           onMouseEnter={handleHoverEnter}
           onMouseLeave={handleHoverLeave}
           

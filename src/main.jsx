@@ -7,7 +7,8 @@ import Home from './pages/home/Home.jsx'
 import Cirrocis from './pages/Enfermedades/cirrocis/Cirrocis.jsx'
 import HigadoGraso from './pages/Enfermedades/HigadoGraso/HigadoGraso.jsx'
 import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
-import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
+import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx' 
+import Patologias from './pages/patologias/patologias.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -20,7 +21,8 @@ createRoot(document.getElementById('root')).render(
           <Route path="/Learn/Cirrocis" element={<Cirrocis />} />
           <Route path="/Learn/HigadoGraso" element={<HigadoGraso />} />
           <Route path="/Learn/Hepatitis" element={<Hepatitis />} />
-          <Route path="/Learn/CancerHigado" element={<CancerHigado />} />
+          <Route path="/Learn/CancerHigado" element={<CancerHigado />} /> 
+          <Route path="/Patologias" element={<Patologias />} />
         </Routes>
       </Layout>
     </BrowserRouter>

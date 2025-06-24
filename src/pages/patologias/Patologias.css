@@ -1,0 +1,53 @@
+.patologias {
+  padding: 2rem;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.descripcion {
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+.descripcion img.higado-imagen {
+  width: 200px;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.opciones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+  gap: 1rem; /* Espacio más reducido entre elementos */
+  justify-items: center;
+  max-width: 600px; /* Más estrecho que antes */
+  margin: 2rem auto 0 auto; /* Centrado */
+}
+
+.patologia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.patologia:hover {
+  transform: scale(1.05);
+}
+
+.patologia img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain; /* <- cambia de cover a contain */
+  border-radius: 50%;
+  padding: 10px; /* espacio dentro del círculo */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  background-color: white; /* opcional, para mantener contraste */
+}
+
+
+.patologia p {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
