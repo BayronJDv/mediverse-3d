@@ -9,7 +9,7 @@ import Cirrocis from './pages/Enfermedades/cirrocis/Cirrocis.jsx'
 import HigadoGraso from './pages/Enfermedades/HigadoGraso/HigadoGraso.jsx'
 import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
 import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
-import Patologias from './pages/patologias/patologias.jsx'
+import Patologias from './pages/patologias/Patologias.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Quiz from './pages/Quiz/Quiz.jsx'
 
