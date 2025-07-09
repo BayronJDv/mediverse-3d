@@ -41,6 +41,14 @@ const Header = () => {
                     </li>
                     <li>
                         <NavLink className="isalink" to="/Quiz" >Quiz</NavLink>
+                        <ul className='submenu'>
+                            <li>
+                                <NavLink className="isalink" to="/Quiz/Presentar">Hacer Quiz</NavLink>
+                            </li>
+                            <li>
+                                <NavLink className="isalink" to="/Quiz/Resultados">Ver Resultados</NavLink>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <NavLink className="isalink" to="/About" >Sobre Nosotros</NavLink>
@@ -53,7 +61,7 @@ const Header = () => {
 
             ) : (
                 <div className="user-info">
-                    <img src='/images/ficon.png' alt="User Avatar" />
+                    <img src={user.photoURL ? user.photoURL : '/images/ficon.png'} alt="User Avatar" />
                     <p>{user.email.split('@')[0]}</p>
                     <button onClick={() => signOut(auth)}>Cerrar sesión</button>
                 </div>
