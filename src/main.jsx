@@ -12,6 +12,7 @@ import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 import Patologias from './pages/patologias/Patologias.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Quiz from './pages/Quiz/Quiz.jsx'
+import Resultados from './pages/Quiz/Resultados/Resultados.jsx'
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -32,6 +33,9 @@ createRoot(document.getElementById('root')).render(
             </ProtectedRoute>
           }
         />
+        <Route path='/Quiz/Resultados' element={<Resultados />} />
+        <Route path='/Quiz/Presentar' element={<Quiz />} />
+
       </Routes>
     </Layout>
   </BrowserRouter>

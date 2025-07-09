@@ -8,7 +8,7 @@ import { useAtom } from 'jotai';
 
 export const loginWithGoogle = async () => {
   const provider = new GoogleAuthProvider();
-
+  
   try {
     const result = await signInWithPopup(auth, provider);
     const info = getAdditionalUserInfo(result);
