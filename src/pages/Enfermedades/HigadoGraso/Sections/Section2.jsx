@@ -2,9 +2,9 @@ import React, { useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
-import Ictericia from '../modelos-3d/Ictericia'
+import DistensionAbdominal from '../modelos-3d/DistensionAbdominal'
 import ILights from '../Lights/ILights'
-import './Section2.css'
+import './SintomasHigadoG.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
@@ -20,7 +20,7 @@ const Section2 = () => {
             <div className="banner">
                 <div className="banner-overlay">
                     <p></p>
-                    <h1>Cirrocis Hepatica</h1>
+                    <h1>Higado Graso</h1>
                 </div>
             </div>
             <div className="content">
@@ -34,8 +34,8 @@ const Section2 = () => {
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
                         <Staging position={[0, -0.8, 0]} />
-                        <Tittle tittle={"Ictericia"} position={[0, 0.6, 0]} />
-                        <Ictericia scale={1} position={[0, 0, 0]} />
+                        <Tittle tittle={"Distensión Abdominal"} position={[0, 0.6, 0]} />
+                        <Distensión scale={1} position={[0, 0, 0]} />
 
                         {/* Zona clickeable para mostrar tooltip */}
                         <mesh
@@ -59,12 +59,12 @@ const Section2 = () => {
                         {/* Tooltip condicional */}
                         <Textohtml
                             visible={tooltipVisible}
-                            buttontext="La ictericia se produce por la acumulación de bilirrubina en la sangre, una sustancia amarilla que proviene de la descomposición de los glóbulos rojos. Esto ocurre cuando el hígado no puede procesarla adecuadamente."
+                            buttontext="La distensión abdominal se refiere a la sensación de tener el abdomen hinchado o con exceso de gas, lo que puede causar incomodidad o incluso dolor."
                             position={[0.45, 0.35, 0]}
                             distanceFactor={0.8}
                         />
 
-                        <Tittle tittle={"cirrocis"} position={[0.25, -0.25, 0]} />
+                        <Tittle tittle={"Higado Graso"} position={[0.25, -0.25, 0]} />
                         <Tittle tittle={"Normal"} position={[-0.25, -0.25, 0]} />
 
                         {/* Suelo */}
@@ -78,18 +78,17 @@ const Section2 = () => {
                 <div className="information2">
                     <h2>Sintomatología</h2>
                     <p>
-                        <br />Los síntomas de la cirrosis pueden ser inespecíficos o ausentes en etapas tempranas, pero en etapas avanzadas pueden incluir:
+                        <br />El hígado graso (esteatosis hepática) puede ser asintomático en sus primeras etapas, pero a medida que progresa, pueden aparecer varios síntomas. Aquí te presento los más comunes:
                         <br />
                     </p>
                     <ul>
+                        <li><strong>Distensión Abdominal:</strong> La distensión abdominal causada por hígado graso, también conocida como ascitis, es la acumulación de líquido en el abdomen, que puede ser una complicación de la enfermedad hepática, incluyendo el hígado graso no alcohólico (EHGNA) o la enfermedad hepática alcohólica. Esta acumulación de líquido puede causar hinchazón y malestar en el abdomen, y en algunos casos, también puede causar hinchazón en los tobillos y dificultad para respirar.</li>
                         <li><strong>Fatiga:</strong> Sensación de cansancio y debilidad.</li>
-                        <li><strong>Ictericia:</strong> Amarillamiento de la piel y los ojos.</li>
-                        <li><strong>Hinchazón en las piernas y abdomen:</strong> Acumulación de líquido.</li>
+                        <li><strong>Dolor o molestia en la parte superior derecha del abdomen:</strong> Donde se encuentra el higado.</li>
                         <li><strong>Pérdida de apetito:</strong> Falta de ganas de comer.</li>
                         <li><strong>Náuseas:</strong> Sensación de malestar en el estómago.</li>
-                        <li><strong>Picazón:</strong> Sensación de comezón en la piel.</li>
-                        <li><strong>Facilidad para el sangrado:</strong> Hemorragias fáciles, hematomas, sangrado de encías.</li>
-                        <li><strong>Dolor abdominal:</strong> En la parte superior derecha, a veces.</li>
+                        <li><strong>Orina oscura y heces pálidas:</strong> Posible en etapas más graves.</li>
+                        <li><strong>Confusión o dificultad para concentrarse:</strong> En casos avanzados, por acumulación de toxinas.</li>
                     </ul>
                 </div>
             </div>
