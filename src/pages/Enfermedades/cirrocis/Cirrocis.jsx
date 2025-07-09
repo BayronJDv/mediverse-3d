@@ -5,6 +5,8 @@ const Section3 = React.lazy(() => import('./Sections/Section3'));
 const Section4 = React.lazy(() => import('./Sections/Section4'));
 import './Cirrocis.css';
 import Loader from '../../../components/Loader'
+import Warning from '../../../components/warning/Warning';
+
 
 const Cirrocis = () => {
   const [activeSection, setActiveSection] = useState(1);
@@ -15,10 +17,10 @@ const Cirrocis = () => {
         return (
           <>
             <Suspense fallback={<Loader />}>
-            <Section1 />
-            <button onClick={() => setActiveSection(activeSection + 1)}>
-              Siguiente (sintomas)
-            </button>
+              <Section1 />
+              <button onClick={() => setActiveSection(activeSection + 1)}>
+                Siguiente (sintomas)
+              </button>
             </Suspense>
           </>
         );
@@ -54,7 +56,7 @@ const Cirrocis = () => {
       {renderSection()}
 
 
-      
+
       {(activeSection > 1 && activeSection < 4) && (
         <div className="navegacion">
           {activeSection > 1 && (
@@ -70,16 +72,16 @@ const Cirrocis = () => {
         </div>
       )}
 
-          <div className="consejos">
-          <h1>¡Consejos!</h1>
-          <div className="click">
-            <img src="/images/click.png" alt="" />
-            <p>Presiona las esferas rojas para más información!</p>
-          </div>
-          <div>
-            <p>Usa las teclas W y S para cambiar el tamaño de los modelos</p>
-          </div>
+      <div className="consejos">
+        <h1>¡Consejos!</h1>
+        <div className="click">
+          <img src="/images/click.png" alt="" />
+          <p>Presiona las esferas rojas para más información!</p>
         </div>
+        <div>
+          <p>Usa las teclas W,S y E para interactuar con los modelos</p>
+        </div>
+      </div>
 
     </div>
   );
