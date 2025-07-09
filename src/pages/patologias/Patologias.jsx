@@ -1,4 +1,5 @@
 import './Patologias.css'
+import { Link } from 'react-router-dom'
 
 const Patologias = () => {
   return (
@@ -11,22 +12,25 @@ const Patologias = () => {
 
       <h2>Selecciona una patología para aprender más</h2>
       <div className="opciones">
-        <div className="patologia">
+        <Link to="/Learn/Cirrocis" className="patologia">
           <img src="/images/higadocirrosis.png" alt="Cirrosis" />
           <p>Cirrosis hepática</p>
-        </div>
-        <div className="patologia">
+        </Link>
+
+        <Link to="/Learn/HigadoGraso" className="patologia">
           <img src="/images/higadograso.png" alt="Hígado graso" />
           <p>Hígado graso</p>
-        </div>
-        <div className="patologia">
+        </Link>
+
+        <Link to="/Learn/Hepatitis" className="patologia">
           <img src="/images/hepatitis.png" alt="Hepatitis" />
           <p>Hepatitis</p>
-        </div>
-        <div className="patologia">
+        </Link>
+
+        <Link to="/Learn/CancerHigado" className="patologia">
           <img src="/images/higadocancer.png" alt="Cáncer de hígado" />
           <p>Cáncer de hígado</p>
-        </div>
+        </Link>
       </div>
     </div>
   )
