@@ -25,15 +25,15 @@ const Section2 = () => {
                     
                     <div className="content">
                     <div className="information">
-                        <h2>¿Qué es la Hepatitis?</h2>
+                        <h2>¿Cuales son los sintomas de la Hepatitis?</h2>
     
                         <p> Los síntomas de la hepatitis no siempre aparecen de inmediato, pero cuando lo hacen, suelen incluir cansancio extremo, fiebre leve, pérdida del apetito, náuseas, vómito y dolor en la zona del hígado (parte superior derecha del abdomen). También pueden presentarse cambios visibles como la piel y los ojos amarillos (ictericia), orina muy oscura y heces claras. En algunos casos, sobre todo al inicio, la persona puede no notar ningún síntoma. </p>
     
                         <p><br /><strong>Más información:</strong></p>
                         <ul>
-                            <li><a href="https://www.cdc.gov/hepatitis/abc/index.htm" target="_blank">Centers for Disease Control and Prevention (2023) – Viral Hepatitis ABCs</a></li>
-                            <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2024) – Hepatitis Fact Sheet</a></li>
-                            <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
+                            <li><a href="https://www.mayoclinic.org/es/diseases-conditions/hepatitis-a/symptoms-causes/syc-20367007" target="_blank">Mayo Clinic (2024) – Hepatitis A</a></li>
+                            <li><a href="https://medlineplus.gov/spanish/hepatitis.html" target="_blank">MedlinePlus (2024) – Hepatitis </a></li>
+                            <li><a href="https://www.cun.es/enfermedades-tratamientos/enfermedades/hepatitis-virales" target="_blank">Clinica Universidad de Navarra (s.f) – Hepatitis Virales</a></li>
                         </ul>
     
                         <button onClick={() => navigate('/Learn/Hepatitis/Sintomas')}>
