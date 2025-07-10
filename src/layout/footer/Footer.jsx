@@ -23,7 +23,7 @@ const Footer = () => {
         <NavLink to="/sobre-nosotros">Sobre Nosotros</NavLink>
       </div>
       <div className="footer-right">
-        <h3>Examens</h3>
+        <h3>Examenes</h3>
         <NavLink to="/quiz">Quiz</NavLink>
       </div>
     </footer>
