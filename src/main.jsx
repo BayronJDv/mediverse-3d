@@ -34,10 +34,16 @@ createRoot(document.getElementById('root')).render(
           }
         />
         <Route path='/Quiz/Resultados' element={<Resultados />} />
-        <Route path='/Quiz/Presentar' element={<Quiz />} />
-
+        <Route
+          path='/Quiz/Presentar'
+          element={
+            <ProtectedRoute>
+              <Quiz />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Layout>
   </BrowserRouter>
-
 )
+  
