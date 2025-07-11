@@ -112,7 +112,7 @@ const Resultados = () => {
           </table>
           {mejorResultado && (
             <div className="mejor-resultado">
-              <h3>Tu Mejor Puntaje</h3>
+              <h3>Tu Mejor Intento</h3>
               <p><strong>Puntaje:</strong> {mejorResultado.puntaje}</p>
               {mejorResultado.fecha && <p><strong>Fecha:</strong> {mejorResultado.fecha}</p>}
               <p><strong>Posición:</strong> {mejorResultado.position}</p>
