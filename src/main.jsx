@@ -33,7 +33,14 @@ createRoot(document.getElementById('root')).render(
             </ProtectedRoute>
           }
         />
-        <Route path='/Quiz/Resultados' element={<Resultados />} />
+        <Route
+          path='/Quiz/Resultados'
+          element={
+            <ProtectedRoute>
+              <Resultados />
+            </ProtectedRoute>
+          }
+        />
         <Route
           path='/Quiz/Presentar'
           element={
@@ -46,4 +53,3 @@ createRoot(document.getElementById('root')).render(
     </Layout>
   </BrowserRouter>
 )
-  

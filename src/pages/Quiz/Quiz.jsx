@@ -47,6 +47,7 @@ const Quiz = () => {
         userId: user?.uid || '',
         nombre: user?.displayName || '',
         respuestas,
+        imgurl: user?.photoURL || '',
       };
       const backendUrl = import.meta.env.VITE_MEDIVERSERBACK || 'http://localhost:5000';
       try {
