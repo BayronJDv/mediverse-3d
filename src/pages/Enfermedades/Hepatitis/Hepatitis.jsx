@@ -64,12 +64,9 @@ const Hepatitis = () => {
 
           <div className="consejos">
           <h1>¡Consejos!</h1>
-          <div className="click">
-            <img src="/images/click.png" alt="" />
-            <p>Presiona las esferas rojas para más información!</p>
-          </div>
+          
           <div>
-            <p>Usa las teclas W y S para cambiar el tamaño de los modelos</p>
+            <p>Usa las teclas W y S para mover los modelos a la izquierda y a la derecha</p>
           </div>
         </div>
 
