@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
-import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 export default function Model(props) {
   const { nodes, materials } = useGLTF('/models-3d/Higadograso/DistensionAbdominal.glb')
@@ -16,26 +15,8 @@ export default function Model(props) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Skin.geometry}
-        material={materials.SkinMaterial}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Eyes.geometry}
-        material={materials.EyesMaterial}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.HealthSkin.geometry}
-        material={materials['Hea;thSkinMaterial']}
-      />
-      <mesh 
-        castShadow
-        receiveShadow
-        geometry={nodes.Healtheyes.geometry}
-        material={materials.HealthEyesMaterial}
+        geometry={nodes['tripo_node_8dfeb299-79f3-4d28-9479-6fb094407514'].geometry}
+        material={materials['tripo_material_8dfeb299-79f3-4d28-9479-6fb094407514']}
       />
     </group>
   )

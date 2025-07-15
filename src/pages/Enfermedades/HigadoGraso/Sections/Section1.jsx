@@ -61,7 +61,6 @@ const HigadoGraso = () => {
             <li><a href="https://medlineplus.gov/spanish" target="_blank" rel="noopener noreferrer">MedlinePlus(2022) – Enfermedad del hígado graso no alcohólico.</a></li>
             <li><a href="https://www.who.int/es" target="_blank" rel="noopener noreferrer">Organización Mundial de la Salud (OMS). (2023) – Trastornos hepáticos y metabólicos</a></li>
           </ul>
-          <button>Ver síntomas →</button>
         </div>
 
         <div className="model">
