@@ -1,37 +1,69 @@
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
+import { PositionalAudio } from '@react-three/drei'
+
 
 export default function PushUpMen(props) {
     const group = useRef()
     const { nodes, materials, animations } = useGLTF('/models-3d/Cirrocis/Cares-model.glb')
     const { actions, names } = useAnimations(animations, group)
     const [, get] = useKeyboardControls();
+    const [paused, setPaused] = useState(true)
+    const AudioRef = useRef()
+
+
     useFrame(() => {
         const { forward, back } = get()
-
         if (forward) {
             group.current.scale.multiplyScalar(1.01)
         }
         if (back) {
             group.current.scale.multiplyScalar(0.99)
         }
-        const pressed = get().back
-
     })
 
     useEffect(() => {
-        if (names.length > 0 && actions[names[0]]) {
-            actions[names[0]].reset().play()
+        const handleKeyDown = (e) => {
+            if (e.key.toLowerCase() === 'e') {
+                setPaused(prev => !prev)
+                if (AudioRef.current) {
+                    if (paused) {
+                        AudioRef.current.play(); // Si estaba pausado, reproduce
+                    } else {
+                        AudioRef.current.pause(); // Si estaba reproduciendo, pausa
+                    }
+                }
+            }
         }
-        // Opcional: detener la animación al desmontar
+        window.addEventListener('keydown', handleKeyDown)
+        return () => {
+            window.removeEventListener('keydown', handleKeyDown)
+        }
+    }, [paused])
+
+    useEffect(() => {
+        if (names.length > 0 && actions[names[0]]) {
+            if (paused) {
+                actions[names[0]].paused = true
+                if (group.current) {
+                    group.current.position.y += 0.85 // Baja el modelo al pausar
+                }
+            } else {
+                actions[names[0]].reset().play()
+                actions[names[0]].paused = false
+                if (group.current) {
+                    group.current.position.y = 0 // Vuelve a la posición normal
+                }
+            }
+        }
         return () => {
             if (names.length > 0 && actions[names[0]]) {
                 actions[names[0]].stop()
             }
         }
-    }, [actions, names])
+    }, [actions, names, paused])
 
     return (
         <group ref={group} {...props} dispose={null} castShadow={true} receiveShadow={true}>
@@ -104,6 +136,14 @@ export default function PushUpMen(props) {
                         />
                         <primitive object={nodes._rootJoint} />
                     </group>
+                </group>
+                <group>
+                    <PositionalAudio
+                    ref={AudioRef}
+                    loop
+                    url="/sounds/Breath.mp3"
+                    distance={5}
+                />
                 </group>
             </group>
         </group>

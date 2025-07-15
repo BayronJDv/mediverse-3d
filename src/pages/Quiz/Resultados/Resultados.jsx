@@ -11,7 +11,7 @@ import Nombres from '../Text/Nombres.jsx'
 import { useAtom } from 'jotai'
 import { userAtom } from '../../../stores/userAtom.js'
 import Staging from '../../Enfermedades/cirrocis/stages/Staging.jsx';
-
+import { Environment } from '@react-three/drei';
 
 const Resultados = () => {
   const [topResultados, setTopResultados] = useState([]);
@@ -81,12 +81,11 @@ const Resultados = () => {
               <Number text="3" position={[0.25, 0.05, 0.2]} />
               <Nombres buttontext={topResultados[2]?.nombre || "Tercer Lugar"} position={[0.23, 0.4, -0.1]} distanceFactor={1} imgurl={topResultados[2]?.imgurl} />
               <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
-                <planeGeometry args={[5, 5]} />
+                <circleGeometry args={[2, 32]} />
                 <meshPhongMaterial color="white" />
               </mesh>
               <Controls />
               <PodioLight />
-              <Staging />
             </Canvas>
           </KeyboardControls>
         </div>

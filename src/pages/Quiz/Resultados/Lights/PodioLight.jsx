@@ -15,7 +15,7 @@ const PodioLight = () => {
         position={[1, 1, -1]}
         intensity={3}
         castShadow
-        color={"yellow"}
+        color={"white"}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
@@ -24,7 +24,7 @@ const PodioLight = () => {
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
       />     
-      <Environment preset= "city"/>
+      <Environment preset= "warehouse" />
     </>
   )
 }

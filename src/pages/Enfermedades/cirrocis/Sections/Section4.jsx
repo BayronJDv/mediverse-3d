@@ -9,7 +9,7 @@ import Controls from '../Controls/Controls'
 import PushUpMen from '../modelos-3d/PushUpMen'
 import CameraDebugger from '../../../../components/CameraDebugger'
 import CameraDefault from '../../../../components/CameraDefault'
-
+import { Text3D } from '@react-three/drei'
 
 const Section4 = () => {
     const map = useMemo(
@@ -78,8 +78,19 @@ const Section4 = () => {
                                 <meshPhongMaterial color="white" />
                             </mesh>
                             <PushUpMen />
+                            
                             <Staging4 />
                             <Controls enableZoom={false} />
+                            <Text3D
+                                position= {[0.4, 0.5, 0]}
+                                font="/fonts/ConsolaMono.json"
+                                size= {0.1}
+                                height={0.05}
+                                curveSegments={32}
+                            >EJERCITATE
+                            <meshStandardMaterial color="white" />
+                            </Text3D>
+
                         </Canvas>
                     </KeyboardControls>
                 </div>
