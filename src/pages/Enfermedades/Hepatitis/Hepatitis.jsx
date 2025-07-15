@@ -1,48 +1,80 @@
-import React from 'react'
-import '../FirstSection.css'
-import { Canvas, useFrame } from '@react-three/fiber'
-import {
-    OrbitControls,
-    PerspectiveCamera,
-    Environment,
-} from "@react-three/drei";
-import HigadoG from './modelos-3d/HigadoG'
+import React, { Suspense, useState } from 'react';
+import Section1 from './Sections/Section1';
+const Section2 = React.lazy(() => import('./Sections/Section2'));
+const Section3 = React.lazy(() => import('./Sections/Section3'));
 
-const HigadoHepatico = () => {
+import './Hepatitis.css';
+import Loader from '../../../components/Loader'
+
+const Hepatitis = () => {
+  const [activeSection, setActiveSection] = useState(1);
+
+  const renderSection = () => {
+    switch (activeSection) {
+      case 1:
+        return (
+          <>
+            <Suspense fallback={<Loader />}>
+            <Section1 />
+            <button onClick={() => setActiveSection(activeSection + 1)}>
+              Siguiente (sintomas)
+            </button>
+            </Suspense>
+          </>
+        );
+      case 2:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section2 />
+          </Suspense>
+        );
+      case 3:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section3 />
+          </Suspense>
+        );
+      
+      default:
+        return null;
+    }
+  };
+
   return (
-            <div>
-                <div className="banner">
-                    <div className="banner-overlay">
-                        <p>Enfermedad:</p>
-                        <h1>Cirrocis Hepatica</h1>
-                    </div>
-                </div>
-                <div className="content">
-                    <div className="information">
-                        <h2>¿ Ques es la cirrosis ?</h2>
-    
-                        <p>
-                            <br />
-                            La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre. A medida que avanza, puede provocar complicaciones graves como acumulación de líquido en el abdomen (ascitis), confusión mental (encefalopatía hepática) e incluso cáncer de hígado.
-                        </p>
-                        <p><br /><strong>Referencias:</strong></p>
-                        <ul>
-                            <li><a href="https://www.mayoclinic.org/diseases-conditions/cirrhosis/symptoms-causes/syc-20351487" target="_blank">Mayo Clinic (2023) – Cirrosis</a></li>
-                            <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
-                            <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
-                        </ul>
-    
-                    </div>
-    
-                    <div className="model">
-                        <Canvas camera={{ position: [0, 0, 1] }}>
-                            <HigadoG scale={1} position={[0, 0, 0]} />
-                        </Canvas>
-                    </div>
-                </div>
-    
-            </div>
-  )
-}
+    <div className="hepatitis">
 
-export default HigadoHepatico
+      {renderSection()}
+
+
+      
+      {(activeSection > 1 && activeSection < 4) && (
+        <div className="navegacion">
+          {activeSection > 1 && (
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior
+            </button>
+          )}
+          {activeSection < 4 && (
+            <button onClick={() => setActiveSection(activeSection + 1)}>
+              Siguiente
+            </button>
+          )}
+        </div>
+      )}
+
+          <div className="consejos">
+          <h1>¡Consejos!</h1>
+          <div className="click">
+            <img src="/images/click.png" alt="" />
+            <p>Presiona las esferas rojas para más información!</p>
+          </div>
+          <div>
+            <p>Usa las teclas W y S para cambiar el tamaño de los modelos</p>
+          </div>
+        </div>
+
+    </div>
+  );
+};
+
+export default Hepatitis;

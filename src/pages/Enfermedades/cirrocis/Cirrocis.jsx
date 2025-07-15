@@ -1,57 +1,90 @@
-import '../FirstSection.css'
-import React, { use } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import {
-    OrbitControls,
-    PerspectiveCamera,
-    Environment,
-} from "@react-three/drei";
-import HigadoCirrotico from './modelos-3d/HigadoCirrotico'
-import { Suspense } from 'react';
-import Loader from '../../../components/Loader';
+import React, { Suspense, useState } from 'react';
+import Section1 from './Sections/Section1';
+const Section2 = React.lazy(() => import('./Sections/Section2'));
+const Section3 = React.lazy(() => import('./Sections/Section3'));
+const Section4 = React.lazy(() => import('./Sections/Section4'));
+import './Cirrocis.css';
+import Loader from '../../../components/Loader'
+import Warning from '../../../components/warning/Warning';
+
 
 const Cirrocis = () => {
+  const [activeSection, setActiveSection] = useState(1);
 
-    return (
-        <div className='cirrocis'>
-            <div className="banner">
-                <div className="banner-overlay">
-                    <p>Enfermedad:</p>
-                    <h1>Cirrocis Hepatica</h1>
-                </div>
-            </div>
-            <div className="content">
-                <div className="information">
-                    <h2>¿ Ques es la cirrosis ?</h2>
+  const renderSection = () => {
+    switch (activeSection) {
+      case 1:
+        return (
+          <>
+            <Suspense fallback={<Loader />}>
+              <Section1 />
+              <button onClick={() => setActiveSection(activeSection + 1)}>
+                Siguiente (sintomas)
+              </button>
+            </Suspense>
+          </>
+        );
+      case 2:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section2 />
+          </Suspense>
+        );
+      case 3:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section3 />
+          </Suspense>
+        );
+      case 4:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section4 />
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior (tratamiento)
+            </button>
+          </Suspense>
+        );
+      default:
+        return null;
+    }
+  };
 
-                    <p>
-                        <br />
-                        La cirrosis hepática es una enfermedad crónica en la que el tejido sano del hígado es reemplazado por tejido cicatricial, lo que afecta gravemente su funcionamiento. Esta alteración impide al hígado cumplir funciones vitales como la eliminación de toxinas, la producción de proteínas esenciales y la regulación de sustancias químicas en la sangre.
-                    </p>
-                    <p><br /><strong>Mas Informacion:</strong></p>
-                    <ul>
-                        <li><a href="https://www.who.int/news-room/fact-sheets/detail/hepatitis" target="_blank">World Health Organization (2022) – Hepatitis</a></li>
-                        <li><a href="https://doi.org/10.1016/j.jhep.2018.03.024" target="_blank">European Association for the Study of the Liver (2018) – EASL Clinical Practice Guidelines</a></li>
-                    </ul>
-                    <button> Ver síntomas → </button>
+  return (
+    <div className="cirrocis">
 
-                </div>
+      {renderSection()}
 
-                <div className="model">
-                    <Canvas camera={{ position: [0, 0, 1] }} shadows={true}> 
-                        <PerspectiveCamera makeDefault position={[0, 0, 1]} />
-                        <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
-                        <ambientLight intensity={2} />
-                        <directionalLight position={[10, 10, 5]} intensity={1} />
-                        <Suspense fallback={<Loader/>}>
-                            <HigadoCirrotico scale={1} position={[0, 0, 0]} />
-                        </Suspense>
-                    </Canvas>
-                </div>
-            </div>
 
+
+      {(activeSection > 1 && activeSection < 4) && (
+        <div className="navegacion">
+          {activeSection > 1 && (
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior
+            </button>
+          )}
+          {activeSection < 4 && (
+            <button onClick={() => setActiveSection(activeSection + 1)}>
+              Siguiente
+            </button>
+          )}
         </div>
-    )
-}
+      )}
 
-export default Cirrocis
+      <div className="consejos">
+        <h1>¡Consejos!</h1>
+        <div className="click">
+          <img src="/images/click.png" alt="" />
+          <p>Presiona las esferas rojas para más información!</p>
+        </div>
+        <div>
+          <p>Usa las teclas W,S y E para interactuar con los modelos</p>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default Cirrocis;
