@@ -1,0 +1,66 @@
+
+
+.content3{
+    display: flex;
+    flex-direction: row;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 700px
+
+}
+.model3{
+    width: 100%;  
+    padding: 20px;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+.information3{
+    width: 35%;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    gap: 20px;
+    line-height: 1.3;
+}
+
+.html3d{
+    width: 400px;
+    height: 400px;
+
+}
+
+.information3  h2{
+    background-color: rgb(150, 26, 26);
+    border-radius: 15px;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.information3 p{
+    margin: 10px 10px 10px 10px;
+}
+
+.information3 ul{
+    margin: 20px 20px 20px 20px;
+    font-size: 1.2em;
+    padding: 0;
+    list-style-type: none;
+    line-height: 1.3;
+
+}
+.information3 ul li {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    text-decoration: none;
+}
+.information3 ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+.information3 button{
+    margin-top: 3%;
+}

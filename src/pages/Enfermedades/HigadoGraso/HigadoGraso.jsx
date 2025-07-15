@@ -1,49 +1,89 @@
-import React from 'react'
-import '../FirstSection.css'
-import { Canvas} from '@react-three/fiber'
-import {
-    OrbitControls,
-} from "@react-three/drei";
-import HigadoModel from './modelos-3d/HigadoModel';
+import React, { Suspense, useState } from 'react';
+import Section1 from './Sections/Section1';
+const Section2 = React.lazy(() => import('./Sections/Section2'));
+const Section3 = React.lazy(() => import('./Sections/Section3'));
+import './FirstSection.css';
+import Loader from '../../../components/Loader'
+import Warning from '../../../components/warning/Warning';
 
 
 const HigadoGraso = () => {
-  return (
-            <div>
-                <div className="banner">
-                    <div className="banner-overlay">
-                        <p>Enfermedad:</p>
-                        <h1>Higado Graso</h1>
-                    </div>
-                </div>
-                <div className="content">
-                    <div className="information">
-                        <h2>¿ Ques es el Higado graso?</h2>
-    
-                        <p>
-                            <br />
-                            El hígado graso es una condición en la que se acumulan lípidos en exceso en los hepatocitos, pudiendo ser de origen alcohólico o no alcohólico, y que puede evolucionar a inflamación, fibrosis o cirrosis hepática.
-                        </p>
-                        <p><br /><strong>Mas informacion:</strong></p>
-                        <ul>
-                            <li><a href="https://www.mayoclinic.org/es" target="_blank">Mayo Clinic (2023) – Hígado graso (esteatosis hepática).</a></li>
-                            <li><a href="https://medlineplus.gov/spanish" target="_blank">MedlinePlus(2022) –  Enfermedad del hígado graso no alcohólico.</a></li>
-                            <li><a href="https://www.who.int/es" target="_blank">Organización Mundial de la Salud (OMS). (2023) – Trastornos hepáticos y metabólicos</a></li>
-                        </ul>
-                        <button> Ver síntomas → </button>
-                    </div>
-    
-                    <div className="model">
-                        <Canvas camera={{ position: [1, 2, 0] }}>
-                            <HigadoModel scale={0.8}/>
-                            <ambientLight intensity={2} />
-                            <OrbitControls enableZoom={false} enablePan={true} enableRotate={true} />
-                        </Canvas>
-                    </div>
-                </div>
-    
-            </div>
-  )
-}
+  const [activeSection, setActiveSection] = useState(1);
 
-export default HigadoGraso
+  const renderSection = () => {
+    switch (activeSection) {
+      case 1:
+        return (
+          <>
+            <Suspense fallback={<Loader />}>
+              <Section1 />
+              <button onClick={() => setActiveSection(activeSection + 1)}>
+                Siguiente (sintomas)
+              </button>
+            </Suspense>
+          </>
+        );
+      case 2:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section2 />
+          </Suspense>
+        );
+      case 3:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section3 />
+          </Suspense>
+        );
+      case 4:
+        return (
+          <Suspense fallback={<Loader />}>
+            <Section4 />
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior (tratamiento)
+            </button>
+          </Suspense>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="Higado Graso">
+
+      {renderSection()}
+
+
+
+      {(activeSection > 1 && activeSection < 4) && (
+        <div className="navegacion">
+          {activeSection > 1 && (
+            <button onClick={() => setActiveSection(activeSection - 1)}>
+              Anterior
+            </button>
+          )}
+          {activeSection < 4 && (
+            <button onClick={() => setActiveSection(activeSection + 1)}>
+              Siguiente
+            </button>
+          )}
+        </div>
+      )}
+
+      <div className="consejos">
+        <h1>¡Consejos!</h1>
+        <div className="click">
+          <img src="/images/click.png" alt="" />
+          <p>Presiona las esferas rojas para más información!</p>
+        </div>
+        <div>
+          <p>Usa las teclas W,S y E para interactuar con los modelos</p>
+        </div>
+      </div>
+
+    </div>
+  );
+};
+
+export default HigadoGraso;
