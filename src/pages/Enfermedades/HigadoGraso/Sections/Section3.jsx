@@ -2,7 +2,7 @@ import React, { useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
-import Tlights from '../Lights/Tlights'
+import Tlights from '../../../Lights/Tlights'
 import './Section3.css'
 
 import Textohtml from '../Text/Textohtml'
