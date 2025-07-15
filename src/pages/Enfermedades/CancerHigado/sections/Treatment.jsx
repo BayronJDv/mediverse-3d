@@ -27,7 +27,7 @@ const Treatment = () => {
             <div className="banner">
                 <div className="banner-overlay">
                     <p></p>
-                    <h1>Cirrosis Hepática</h1>
+                    <h1>Cáncer de Hígado</h1>
                 </div>
             </div>
             
