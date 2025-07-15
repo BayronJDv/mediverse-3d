@@ -2,7 +2,6 @@ import React, { useMemo, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
-import Tlights from '../../../Lights/Tlights'
 import './Section3.css'
 
 import Textohtml from '../Text/Textohtml'
@@ -91,8 +90,7 @@ const Section3 = () => {
                             position={[1.75, 0.35, 0]}
                             distanceFactor={0.8}
                         />
-                        <Tlights />
-
+                        
                         <Textohtml
                             visible={tooltipVisible1}
                             buttontext="El ejercicio regular también es clave: al menos 150 minutos semanales de actividad física, como caminar, trotar o nadar, junto con ejercicios de fuerza, ayudan a reducir la grasa hepática y mejoran la sensibilidad a la insulina."
