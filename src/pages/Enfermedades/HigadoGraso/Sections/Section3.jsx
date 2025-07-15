@@ -4,13 +4,13 @@ import { OrbitControls } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import Tlights from '../Lights/Tlights'
 import './Section3.css'
-import Tittle from '../Text/Tittle'
+
 import Textohtml from '../Text/Textohtml'
-import Staging from '../stages/Staging'
+
 import { Html } from '@react-three/drei'
 import CameraDebugger from '../../../../components/CameraDebugger'
 import CameraDefault from '../../../../components/CameraDefault'
-import TratamientoRed from '../modelos-3d/TratamientoHigadoG'
+
 
 
 const Section3 = () => {
@@ -35,7 +35,7 @@ const Section3 = () => {
                         <CameraDefault position={cameraPosition} lookAt={cameraLookAt} />
                         <CameraDebugger />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
-                        <Staging  />
+                        
                         <Html position={[-1.7, 0.6, 0]} className='html3d'>
                             <div className="information3">
                                 <h2>Tratamiento</h2>
@@ -47,8 +47,8 @@ const Section3 = () => {
 
                             </p>
                         </Html>
-                        <TratamientoHigadoG position={[1.35, -0.1, 0]} scale={1.5}/>
-                        <Staging position={[0, -0.8, 0]} />
+                    
+                        
                         <mesh
                             position={[0.2, 0.3, 0]}
                             onClick={(e) => {
@@ -113,7 +113,7 @@ const Section3 = () => {
                             <circleGeometry args={[0.5, 32]} />
                             <meshPhongMaterial color="#e0e0e0" />
                         </mesh>
-                        <Staging />
+                
 
                     </Canvas>
                 </div>

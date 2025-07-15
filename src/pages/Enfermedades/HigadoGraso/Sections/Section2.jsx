@@ -4,10 +4,13 @@ import { OrbitControls, PerspectiveCamera } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import DistensionAbdominal from '../modelos-3d/DistensionAbdominal'
 import ILights from '../Lights/ILights'
+import  { useRef, useEffect } from 'react';  
+import { useGLTF, useAnimations} from '@react-three/drei';
+import { useFrame } from '@react-three/fiber';
 import './SintomasHigadoG.css'
-import Tittle from '../Text/Tittle'
+
 import Textohtml from '../Text/Textohtml'
-import Staging from '../stages/Staging'
+
 import CameraDebugger from '../../../../components/CameraDebugger'
 import CameraDefault from '../../../../components/CameraDefault'
 
@@ -33,9 +36,9 @@ const Section2 = () => {
                         />
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
-                        <Staging position={[0, -0.8, 0]} />
-                        <Tittle tittle={"Distensión Abdominal"} position={[0, 0.6, 0]} />
-                        <Distensión scale={1} position={[0, 0, 0]} />
+                       
+                       
+                        <DistensionAbdominal scale={1} position={[0, 0, 0]} />
 
                         {/* Zona clickeable para mostrar tooltip */}
                         <mesh
@@ -55,7 +58,7 @@ const Section2 = () => {
                             <meshStandardMaterial color="rgb(127, 27, 27)" />
 
                         </mesh>
-
+                       
                         {/* Tooltip condicional */}
                         <Textohtml
                             visible={tooltipVisible}
@@ -64,8 +67,7 @@ const Section2 = () => {
                             distanceFactor={0.8}
                         />
 
-                        <Tittle tittle={"Higado Graso"} position={[0.25, -0.25, 0]} />
-                        <Tittle tittle={"Normal"} position={[-0.25, -0.25, 0]} />
+
 
                         {/* Suelo */}
                         <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>

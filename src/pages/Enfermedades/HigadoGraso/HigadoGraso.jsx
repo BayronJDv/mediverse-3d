@@ -2,7 +2,7 @@ import React, { Suspense, useState } from 'react';
 import Section1 from './Sections/Section1';
 const Section2 = React.lazy(() => import('./Sections/Section2'));
 const Section3 = React.lazy(() => import('./Sections/Section3'));
-import './FirstSection.css';
+import '../FirstSection.css';
 import Loader from '../../../components/Loader'
 import Warning from '../../../components/warning/Warning';
 
