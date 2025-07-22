@@ -10,7 +10,7 @@ import Textohtml from '../Text/Textohtml'
 import Staging from '../stages/Staging'
 import CameraDebugger from '../../../../components/CameraDebugger'
 import CameraDefault from '../../../../components/CameraDefault'
-
+import { Text3D } from '@react-three/drei'
 
 const Section2 = () => {
     const [tooltipVisible, setTooltipVisible] = useState(false)
@@ -26,7 +26,6 @@ const Section2 = () => {
             <div className="content">
                 <div className="model2">
                     <Canvas shadows={true} onPointerMissed={() => setTooltipVisible(false)}>
-                        <CameraDebugger />
                         <CameraDefault
                             position={[0.29, 0.06, 1.35]}
                             lookAt={[-0.21 -0.04 -0.98]}
@@ -34,7 +33,17 @@ const Section2 = () => {
                         <ILights />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
                         <Staging position={[0, -0.8, 0]} />
-                        <Tittle tittle={"Ictericia"} position={[0, 0.6, 0]} />
+
+                        {/* Texto 3D para Ictericia */}
+                        <Text3D
+                            position={[-0.3, 0.5, 0]}
+                            font="/fonts/ConsolaMono.json"
+                            size={0.08}
+                            height={0.03}
+                            curveSegments={32}
+                        >ICTERICIA
+                            <meshStandardMaterial color="black" />
+                        </Text3D>
                         <Ictericia scale={1} position={[0, 0, 0]} />
 
                         {/* Zona clickeable para mostrar tooltip */}

@@ -12,6 +12,7 @@ import CameraDebugger from '../../../../components/CameraDebugger'
 import CameraDefault from '../../../../components/CameraDefault'
 import TratamientoRed from '../modelos-3d/TratamientoRed'
 import TratamientoLiver from '../modelos-3d/TratamientoLiver'
+import { Text3D } from '@react-three/drei'
 
 const Section3 = () => {
     const [tooltipVisible1, setTooltipVisible1] = useState(false)
@@ -33,9 +34,8 @@ const Section3 = () => {
                 <div className="model3">
                     <Canvas shadows={true} onPointerMissed={() => (setTooltipVisible1(false), setTooltipVisible2(false))}>
                         <CameraDefault position={cameraPosition} lookAt={cameraLookAt} />
-                        <CameraDebugger />
                         <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
-                        <Staging  />
+                        <Staging />
                         <Html position={[-1.7, 0.6, 0]} className='html3d'>
                             <div className="information3">
                                 <h2>Tratamiento</h2>
@@ -43,16 +43,16 @@ const Section3 = () => {
                             <p className='text3d'>
                                 La cirrosis hepática es una enfermedad crónica e irreversible del hígado, lo que significa que el daño causado generalmente no se puede revertir. Sin embargo, el tratamiento se centra en detener o retrasar su progresión, manejar los síntomas y prevenir complicaciones.
                                 <br />
-                                
+
 
                             </p>
                         </Html>
-                        <TratamientoRed position={[0.2, -0.45, 0]} scale={1.5} 
-                        onClick={(e) => {
-                               e.stopPropagation()
-                            }}                                
+                        <TratamientoRed position={[0.2, -0.45, 0]} scale={1.5}
+                            onClick={(e) => {
+                                e.stopPropagation()
+                            }}
                         />
-                        <TratamientoLiver position={[1.35, -0.1, 0]} scale={1.5}/>
+                        <TratamientoLiver position={[1.35, -0.1, 0]} scale={1.5} />
                         <Staging position={[0, -0.8, 0]} />
                         <mesh
                             position={[0.2, 0.3, 0]}
@@ -72,7 +72,7 @@ const Section3 = () => {
 
                         </mesh>
 
-                            <mesh
+                        <mesh
                             position={[1.7, 0.3, 0]}
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -90,7 +90,7 @@ const Section3 = () => {
 
                         </mesh>
 
-                      <Textohtml
+                        <Textohtml
                             visible={tooltipVisible2}
                             buttontext="En los casos mas graves el transaplante de hígado es la única opción de tratamiento. Este procedimiento implica reemplazar el hígado dañado por un hígado sano de un donante."
                             position={[1.75, 0.35, 0]}
@@ -105,6 +105,17 @@ const Section3 = () => {
                             distanceFactor={0.8}
                         />
 
+                        <Text3D
+                            position={[-0.15, 0.55, -0,2]}
+                            font="/fonts/ConsolaMono.json"
+                            size={0.1}
+                            height={0.03}
+                            curveSegments={32}
+                        >EVITAR
+                            <meshStandardMaterial color="rgb(150, 26, 26)" />
+                        </Text3D>
+
+
                         {/* Suelo rectangular */}
                         <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
                             <planeGeometry args={[6, 3]} />
@@ -114,7 +125,7 @@ const Section3 = () => {
                             <circleGeometry args={[0.5, 32]} />
                             <meshPhongMaterial color="#e0e0e0" />
                         </mesh>
-                             <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[1.4, -0.45, 0]}>
+                        <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[1.4, -0.45, 0]}>
                             <circleGeometry args={[0.5, 32]} />
                             <meshPhongMaterial color="#e0e0e0" />
                         </mesh>

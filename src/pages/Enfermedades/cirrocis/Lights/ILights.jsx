@@ -13,7 +13,7 @@ const ILights = () => {
       <ambientLight intensity={1} />
       <directionalLight
         position={[0, 0, 3]}
-        intensity={2}
+        intensity={3}
         castShadow
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
@@ -25,7 +25,7 @@ const ILights = () => {
       />
             <directionalLight
         position={[1, 1, -1]}
-        intensity={10}
+        intensity={3}
         castShadow
         color={"#ffae42"}
         shadow-mapSize-width={1024}

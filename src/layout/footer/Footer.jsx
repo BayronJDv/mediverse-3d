@@ -25,6 +25,8 @@ const Footer = () => {
       <div className="footer-right">
         <h3>Examenes</h3>
         <NavLink to="/quiz">Quiz</NavLink>
+        <NavLink to="/Quiz/Presentar">Presentar Quiz</NavLink>
+        <NavLink to="/Quiz/Resultados">Resultados del Quiz</NavLink>
       </div>
     </footer>
   );

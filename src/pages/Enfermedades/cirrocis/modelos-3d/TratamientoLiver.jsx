@@ -26,6 +26,19 @@ export default function TratamientoLiver(props) {
     })
   }, [textures])
 
+  // Evento de teclado para alternar textura con 'E'
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key.toLowerCase() === 'e') {
+        setIsSick(prev => !prev)
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [])
+
   useEffect(() => {
     if (meshRef.current) {
       const material = meshRef.current.material

@@ -70,22 +70,21 @@ const Section4 = () => {
                     <KeyboardControls map={map} >
                         <Canvas shadows={true}>
                             <CameraDefault position={cameraPosition} lookAt={cameraLookAt} />
-                            <CameraDebugger />
                             <PLights />
                             {/* Piso circular verde */}
                             <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0.01, 0]} receiveShadow={true}>
                                 <circleGeometry args={[10, 64]} />
                                 <meshPhongMaterial color="white" />
                             </mesh>
-                            <PushUpMen />
-                            
+                            <PushUpMen rotation={[0.080, 0, 0]} />
+
                             <Staging4 />
                             <Controls enableZoom={false} />
                             <Text3D
                                 position= {[0.4, 0.5, 0]}
                                 font="/fonts/ConsolaMono.json"
                                 size= {0.1}
-                                height={0.05}
+                                height={0.03}
                                 curveSegments={32}
                             >EJERCITATE
                             <meshStandardMaterial color="white" />

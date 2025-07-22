@@ -10,11 +10,11 @@ const PLights = () => {
   return (
     
     <>
-      <ambientLight intensity={1} />
+      <ambientLight intensity={0.8} />
       <directionalLight
         ref={lightDicRef}
         position={[1, 1, 1]}
-        intensity={3}
+        intensity={4}
         castShadow
         color={"#ffae42"}
         shadow-mapSize-width={1024}
@@ -24,7 +24,8 @@ const PLights = () => {
         shadow-camera-right={5}
         shadow-camera-top={5}
         shadow-camera-bottom={-5}
-      />     
+      />   
+      <Environment preset= "city"/>  
     </>
   )
 }
