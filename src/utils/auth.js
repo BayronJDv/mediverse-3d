@@ -17,7 +17,7 @@ export const loginWithGoogle = async () => {
       console.log("Es nuevo usuario. Puedes guardar en tu DB.");
     }
     console.log("Usuario autenticado:", result.user);
-    setlocalUser(result.user);
+    setLocalUser(result.user);
     
   } catch (error) {
     console.error("Error al iniciar sesión:", error);

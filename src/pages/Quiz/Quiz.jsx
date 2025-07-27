@@ -1,32 +1,43 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router'
 import './Quiz.css'
 import Warning from '../../components/warning/Warning'
 import Qustion from './Questions/Qustion'
-import Question2 from './Questions/Question2'
+import Question2 from './Questions/Question2' 
+import Quiz1 from './Questions/Quiz1'
 import { useAtom } from 'jotai'
 import { userAtom } from '../../stores/userAtom'
 
-
-
 const Quiz = () => {
-  const Questions = [Qustion, Question2];
+  const Questions = [Quiz1, Qustion, Question2];
   const [indice, setIndice] = useState(null);
   const [user, setUser] = useAtom(userAtom);
+  const location = useLocation();
 
   useEffect(() => {
-    const storedIndice = localStorage.getItem('indice');
-    if (storedIndice !== null) {
-      setIndice(Number(storedIndice));
+    // Si estamos en la ruta /Quiz (no en /Quiz/Presentar), limpiar localStorage
+    if (location.pathname === '/Quiz') {
+      localStorage.removeItem('indice');
+      localStorage.removeItem('respuestasQuiz');
+      setIndice(null);
+    } else {
+      // Solo en /Quiz/Presentar, revisar si hay datos guardados
+      const storedIndice = localStorage.getItem('indice');
+      if (storedIndice !== null && storedIndice !== 'null') {
+        setIndice(Number(storedIndice));
+      }
     }
-  }, []);
+  }, [location.pathname]);
 
+  // Solo mostrar las preguntas si el índice no es null Y existe la pregunta
   if (indice !== null && Questions[indice]) {
     const QuestionComponent = Questions[indice];
 
     const handleNext = async () => {
       if (indice < Questions.length - 1) {
-        localStorage.setItem('indice', String(indice + 1));
-        setIndice(indice + 1);
+        const nextIndex = indice + 1;
+        localStorage.setItem('indice', String(nextIndex));
+        setIndice(nextIndex);
       } else {
         await enviarRespuestas();
         localStorage.removeItem('indice');
@@ -34,10 +45,12 @@ const Quiz = () => {
         setIndice(null);
       }
     };
+
     const handlePrev = () => {
       if (indice > 0) {
-        localStorage.setItem('indice', String(indice - 1));
-        setIndice(indice - 1);
+        const prevIndex = indice - 1;
+        localStorage.setItem('indice', String(prevIndex));
+        setIndice(prevIndex);
       }
     };
 
@@ -69,11 +82,10 @@ const Quiz = () => {
       <div className="quiz-pregunta">
         <QuestionComponent indice={indice} />
         <div className="navegacion-quiz">
-          <button className="boton-nav" onClick={handlePrev} disabled={indice === 0}>Anterior</button>
-          <button
-            className="boton-nav"
-            onClick={handleNext}
-          >
+          <button className="boton-nav" onClick={handlePrev} disabled={indice === 0}>
+            Anterior
+          </button>
+          <button className="boton-nav" onClick={handleNext}>
             {indice === Questions.length - 1 ? 'Finalizar' : 'Siguiente'}
           </button>
         </div>
@@ -81,6 +93,7 @@ const Quiz = () => {
     );
   }
 
+  // Página de bienvenida del quiz (se muestra cuando indice es null)
   return (
     <div className='quiz'>
       <Warning text="Te recomendamos haber leido completamente la sección de Aprende Enfermedades antes de realizar el cuestionario." />
@@ -89,7 +102,7 @@ const Quiz = () => {
           <img src="/images/quiz.png" alt="Quiz" />
         </div>
         <div className="seccion-bienvenida">
-          <h1 className='aviso'>Bienvenido al Quiz </h1>
+          <h1 className='aviso'>Bienvenido al Quiz</h1>
           <p>Este cuestionario está diseñado para evaluar tus conocimientos sobre las enfermedades del hígado que hemos estudiado. Asegúrate de leer cada pregunta cuidadosamente y seleccionar la respuesta correcta.</p>
           <p>Recuerda que puedes revisar la sección de "Aprende Enfermedades" para refrescar tus conocimientos antes de comenzar.</p>
           <p>¡Buena suerte!</p>
@@ -100,7 +113,9 @@ const Quiz = () => {
               localStorage.setItem('respuestasQuiz', JSON.stringify([]));
               setIndice(0);
             }}
-          > Empezar Quiz </button>
+          >
+            Empezar Quiz
+          </button>
         </div>
       </div>
     </div>

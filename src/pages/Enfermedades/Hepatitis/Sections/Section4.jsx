@@ -1,14 +1,13 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera, Loader, Environment, Html, Text3D, Text } from '@react-three/drei'
-import Interferon from '../modelos-3d/Interferon' 
+import Interferon from '../modelos-3d/VialSyringe'
 
-
-import './Section2.css'
+import './Section4.css'
 import { useNavigate } from 'react-router-dom'
-import LightInterferon from '../Lights/LightInterferon'
+import LightVialSyringe from '../Lights/LightVialSyringe'
 
-const Section3 = () => {
+const Section4 = () => {
   const navigate = useNavigate()
   const [rotate, setRotate] = useState(false)
   const [positionX, setPositionX] = useState(0) // posición en X del modelo
@@ -44,7 +43,7 @@ const Section3 = () => {
           <Suspense fallback={<Loader />}>
             <Canvas camera={{ position: [0, 0, 1] }} shadows={true}>
               <PerspectiveCamera makeDefault position={[0, 0, 1]} />
-              <LightInterferon />
+              <LightVialSyringe />
               <Environment
                 files="/hdris/background1.hdr"
                 background
@@ -65,7 +64,7 @@ const Section3 = () => {
                 bevelOffset={0}
                 bevelSegments={5}
               >
-                Hepatitis siendo atacada por Interferón
+                Vacuna de la Hepatitis
                 <meshStandardMaterial color="orange" />
               </Text3D>
 
@@ -104,4 +103,4 @@ const Section3 = () => {
   )
 }
 
-export default Section3
+export default Section4
