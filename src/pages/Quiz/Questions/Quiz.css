@@ -1,0 +1,258 @@
+/* Quiz Container */
+.quiz-container {
+  min-height: 100vh;
+  background-color: #f7f4f0;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.quiz-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: #f7c696;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.quiz-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.quiz-title {
+  color: #8b4513;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 10px 0;
+}
+
+/* Main Question Container */
+.pregunta-container {
+  display: flex;
+  background-color: #f8dbbef6;
+  border-radius: 12px;
+  padding: 110px;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  margin: 30px auto;
+  max-width: 100%;
+}
+
+/* 3D Model/Image Section */
+.modelo-3d {
+  width: 300px;
+  height: 250px;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagen-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #e8c4a0 0%, #d4a574 50%, #c8986b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6d4c2a;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Question Info Section */
+.pregunta-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+}
+
+.pregunta-texto h3 {
+  font-weight: bold;
+  color: #5d4037;
+  font-size: 18px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Options */
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.opcion {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #e8c4a0;
+  border: 2px solid transparent;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #5d4037;
+  transition: all 0.3s ease;
+  font-weight: 400;
+}
+
+.opcion:hover {
+  background-color: #deb890;
+  transform: translateY(-1px);
+}
+
+.opcion.selected {
+  background-color: #d4a574;
+  border-color: #8b4513;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(139, 69, 19, 0.2);
+}
+
+.opcion input {
+  display: none;
+}
+
+.opcion-letra {
+  margin-right: 15px;
+  font-weight: bold;
+  color: #8b4513;
+  min-width: 20px;
+}
+
+.opcion-texto {
+  flex: 1;
+}
+
+/* Navigation Buttons */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.btn-nav, .btn-siguiente, .btn-finalizar {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-nav {
+  background-color: #e8c4a0;
+  color: #5d4037;
+}
+
+.btn-nav:hover:not(.disabled) {
+  background-color: #deb890;
+  transform: translateY(-1px);
+}
+
+.btn-nav.disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}
+
+.btn-siguiente {
+  background-color: #e8c4a0;
+  color: #5d4037;
+}
+
+.btn-siguiente:hover {
+  background-color: #deb890;
+  transform: translateY(-1px);
+}
+
+.btn-finalizar {
+  background-color: #8b4513;
+  color: white;
+  font-weight: 600;
+}
+
+.btn-finalizar:hover {
+  background-color: #6d3410;
+  transform: translateY(-1px);
+}
+
+/* Progress Dots */
+.progress-dots {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #e8c4a0;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: #8b4513;
+}
+
+.dot.answered {
+  background-color: #a0522d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .quiz-wrapper {
+    padding: 20px;
+  }
+  
+  .pregunta-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .modelo-3d {
+    width: 100%;
+    max-width: 300px;
+    height: 200px;
+  }
+  
+  .navigation-buttons {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .progress-dots {
+    order: -1;
+  }
+} 
+.quiz-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.pregunta-box {
+  width: 35%;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.modelo-box {
+  width: 60%;
+  height: 100%;
+}
