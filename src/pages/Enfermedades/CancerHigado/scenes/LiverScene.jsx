@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Stage, OrbitControls } from '@react-three/drei';
+import { Stage, OrbitControls, Text3D } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
 import { LiverCancer } from '../models-3d/LiverCancer';
 import { Thermometer } from '../models-3d/Thermometer';
@@ -50,6 +50,22 @@ export const LiverScene = () => {
                 </group>
 
                 {/* --- Modelos Decorativos en el Suelo --- */}               
+                
+                <Text3D
+                    position={[1, -2.4, -9]}
+                    font="/fonts/ConsolaMono.json"
+                    size={2}
+                    height={0.2} // profundidad del texto
+                    curveSegments={12}
+                    bevelEnabled
+                    bevelThickness={0.03}
+                    bevelSize={0.02}
+                    bevelOffset={0}
+                    bevelSegments={5}
+                >
+                    Sintomas
+                    <meshStandardMaterial color="red" />
+                </Text3D>
                 
                 {/* Termómetro: Simboliza la fiebre */}
                 <Thermometer 
