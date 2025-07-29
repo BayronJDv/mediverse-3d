@@ -17,7 +17,8 @@ const Hepatitis = () => {
           <>
             <Suspense fallback={<Loader />}>
             <Section1 />
-            <button onClick={() => setActiveSection(activeSection + 1)}>
+            <button onClick={() => setActiveSection(activeSection + 1)}
+              className='primerboton'>
               Siguiente (sintomas)
             </button>
             </Suspense>
@@ -39,6 +40,10 @@ const Hepatitis = () => {
         return (
           <Suspense fallback={<Loader />}>
             <Section4 />
+            <button onClick={() => setActiveSection(activeSection - 1)}
+              className='primerboton'>
+              Anterior (tratamiento)
+            </button>
           </Suspense>
         );
       

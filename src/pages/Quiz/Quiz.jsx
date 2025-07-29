@@ -8,11 +8,11 @@ import Warning from '../../components/warning/Warning';
 import { useAtom } from 'jotai';
 import { userAtom } from '../../stores/userAtom';
 import PREGUNTASQUIZ from './PREGUNTASQUIZ';
-
+import './Quiz.css';
 
 const PREGUNTAS = PREGUNTASQUIZ;
 
-export default function Quiz1() {
+export default function Quiz() {
   const location = useLocation();
   const [indiceActual, setIndiceActual] = useState(() => {
     const saved = localStorage.getItem('indice');

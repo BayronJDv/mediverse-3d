@@ -18,8 +18,8 @@ const Cirrocis = () => {
           <>
             <Suspense fallback={<Loader />}>
               <Section1 />
-              <button onClick={() => setActiveSection(activeSection + 1)}>
-                Siguiente (sintomas)
+              <button onClick={() => setActiveSection(activeSection + 1)} className='primerboton'>
+                Siguiente (sintomas) ➟ 
               </button>
             </Suspense>
           </>
@@ -40,7 +40,8 @@ const Cirrocis = () => {
         return (
           <Suspense fallback={<Loader />}>
             <Section4 />
-            <button onClick={() => setActiveSection(activeSection - 1)}>
+            <button onClick={() => setActiveSection(activeSection - 1)}
+              className='primerboton'>
               Anterior (tratamiento)
             </button>
           </Suspense>
@@ -60,13 +61,15 @@ const Cirrocis = () => {
       {(activeSection > 1 && activeSection < 4) && (
         <div className="navegacion">
           {activeSection > 1 && (
-            <button onClick={() => setActiveSection(activeSection - 1)}>
-              Anterior
+            <button onClick={() => setActiveSection(activeSection - 1)}
+            className='sboton'>
+              ← Anterior 
             </button>
           )}
           {activeSection < 4 && (
-            <button onClick={() => setActiveSection(activeSection + 1)}>
-              Siguiente
+            <button onClick={() => setActiveSection(activeSection + 1)}
+            className='sboton'>
+              Siguiente ➟
             </button>
           )}
         </div>

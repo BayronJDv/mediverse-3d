@@ -12,7 +12,7 @@ import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 import Patologias from './pages/patologias/Patologias.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
 import Resultados from './pages/Quiz/Resultados/Resultados.jsx'
-import Quiz1 from './pages/Quiz/Quiz1.jsx'
+import Quiz from './pages/Quiz/Quiz.jsx'
 
 
 createRoot(document.getElementById('root')).render(
@@ -30,7 +30,7 @@ createRoot(document.getElementById('root')).render(
           path="/Quiz"
           element={
             <ProtectedRoute>
-              <Quiz1 />
+              <Quiz />
             </ProtectedRoute>
           }
         />
@@ -46,7 +46,7 @@ createRoot(document.getElementById('root')).render(
           path='/Quiz/Presentar'
           element={
             <ProtectedRoute>
-              <Quiz1 />
+              <Quiz />
             </ProtectedRoute>
           }
         />

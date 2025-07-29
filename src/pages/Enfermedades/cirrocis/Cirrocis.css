@@ -41,3 +41,9 @@
     border-radius: none;
     cursor: pointer;
 }
+
+.primerboton{
+    width: 50%;
+    align-self: center;
+
+}

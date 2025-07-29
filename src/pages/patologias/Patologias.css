@@ -1,34 +1,59 @@
-.patologias {
-  padding: 2rem;
-  text-align: center;
+.bannerinit {
+  background: url('/images/bannerinit.jpg') center/cover no-repeat;
+  height: 300px;
+  position: relative;  
+  box-shadow: none; 
+  background-size: 100%;
+}
+.bannerinit-overlay {
+  background: rgba(0, 0, 0, 0.25);
+  height: 100%;
+  color: white;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  
+  text-align: center;
+}
+.bannerinit-overlay h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+
+.patologias {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5%;
 }
 
 .descripcion {
-  max-width: 700px;
   margin: 0 auto 2rem;
   
 }
 
+.patologias h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  size: fit-content;
+  align-self: center;
+}
+
 .descripcion img.higado-imagen {
-  width: 200px;
+  width: 400px;
   display: block;
-  margin: 0 auto 1rem;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .opciones {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
+  display: flex; /* 2 columnas fijas */
+  justify-content: center;
   gap: 5rem; /* Espacio más reducido entre elementos */
   justify-items: center;
-  max-width: 600px; /* Más estrecho que antes */
-  margin: 2rem auto 0 auto; /* Centrado */
+  margin: 2rem 2rem 2rem 2rem; /* Centrado */
 }
 
 .patologia {
@@ -36,6 +61,8 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
+  text-decoration: none; /* quitar subrayado */
+  color: black;
 }
 
 .patologia:hover {
@@ -43,8 +70,8 @@
 }
 
 .patologia img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   object-fit: contain; /* <- cambia de cover a contain */
   border-radius: 50%;
   padding: 10px; /* espacio dentro del círculo */

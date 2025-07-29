@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom'
 const Patologias = () => {
   return (
     <div className="patologias">
-      <h1>El hígado y sus patologías más comunes</h1>
-      <div className="descripcion">
-        <img src="/images/higado.png" alt="Hígado" className="higado-imagen" />
-        <p>
-          El hígado es un órgano vital que desempeña funciones esenciales como la desintoxicación de la sangre, la producción de bilis y el almacenamiento de nutrientes. Sin embargo, puede verse afectado por diversas enfermedades que comprometen su funcionamiento. Conocer estas patologías es clave para su prevención y tratamiento oportuno.
-        </p>
+      <div className="bannerinit">
+        <div className="bannerinit-overlay">
+          <h1>Patologías del hígado</h1>
+        </div>
       </div>
 
+      
       <h2>Selecciona una patología para aprender más</h2>
       <div className="opciones">
         <Link to="/Learn/Cirrocis" className="patologia">
