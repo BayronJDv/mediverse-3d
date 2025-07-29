@@ -4,12 +4,13 @@ import { Link } from 'react-router-dom'
 const Patologias = () => {
   return (
     <div className="patologias">
-      <h1>El hígado y sus patologías más comunes</h1>
-      <div className="descripcion">
-        <img src="/images/higado.png" alt="Hígado" className="higado-imagen" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      <div className="bannerinit">
+        <div className="bannerinit-overlay">
+          <h1>Patologías del hígado</h1>
+        </div>
       </div>
 
+      
       <h2>Selecciona una patología para aprender más</h2>
       <div className="opciones">
         <Link to="/Learn/Cirrocis" className="patologia">

@@ -17,7 +17,7 @@ const CancerHigado = () => {
           <>
             <Suspense fallback={<Loader />}>
               <Definition />
-              <button onClick={() => setActiveSection(activeSection + 1)}>
+              <button onClick={() => setActiveSection(activeSection + 1)} className='primerboton'>
                 Siguiente (sintomas)
               </button>
             </Suspense>
@@ -39,7 +39,8 @@ const CancerHigado = () => {
         return (
           <Suspense fallback={<Loader />}>
             <Section4 />
-            <button onClick={() => setActiveSection(activeSection - 1)}>
+            <button onClick={() => setActiveSection(activeSection - 1)}
+              className='primerboton'>
               Anterior (tratamiento)
             </button>
           </Suspense>

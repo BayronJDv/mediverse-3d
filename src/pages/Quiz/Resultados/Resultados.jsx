@@ -12,11 +12,14 @@ import { useAtom } from 'jotai'
 import { userAtom } from '../../../stores/userAtom.js'
 import Staging from '../../Enfermedades/cirrocis/stages/Staging.jsx';
 import { Environment } from '@react-three/drei';
+import Loader from '../../../components/Loader.jsx';
+
 
 const Resultados = () => {
   const [topResultados, setTopResultados] = useState([]);
   const [mejorResultado, setMejorResultado] = useState(null);
   const [user, setUser] = useAtom(userAtom);
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
     const backendUrl = import.meta.env.VITE_MEDIVERSERBACK || 'http://localhost:5000';
@@ -27,8 +30,10 @@ const Resultados = () => {
         if (!response.ok) throw new Error('Error al obtener resultados');
         const data = await response.json();
         setTopResultados(data);
+        setCargando(false);
       } catch (error) {
         setTopResultados([]);
+        setCargando(false);
       }
     };
 
@@ -59,6 +64,10 @@ const Resultados = () => {
     ],
     []
   );
+
+  if (cargando) {
+    return <Loader />;
+  }
 
   return (
     <div className='Resultados'>

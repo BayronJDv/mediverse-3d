@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <header>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" onClick={() => Navigate('/home')} />
             <nav>
                 <ul id='navlinks'>
                     <li>

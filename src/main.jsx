@@ -11,8 +11,9 @@ import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
 import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 import Patologias from './pages/patologias/Patologias.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-import Quiz from './pages/Quiz/Quiz.jsx'
 import Resultados from './pages/Quiz/Resultados/Resultados.jsx'
+import Quiz from './pages/Quiz/Quiz.jsx'
+
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
