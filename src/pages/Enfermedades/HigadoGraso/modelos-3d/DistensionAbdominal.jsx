@@ -39,6 +39,6 @@ export default function Model(props) {
       />
     </group>
   )
-}
+} 
 
 useGLTF.preload('/models-3d/Higadograso/DistensionAbdominal.glb')
