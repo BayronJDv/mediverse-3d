@@ -2,7 +2,7 @@ import React, { Suspense, useState } from 'react';
 import Definition from './sections/Definition';
 const Symptoms = React.lazy(() => import('./sections/Symptoms'));
 const Treatment = React.lazy(() => import('./sections/Treatment'));
-// const Section4 = React.lazy(() => import('./Sections/Section4'));
+const Prevention = React.lazy(() => import('./sections/Prevention'));
 import './CancerHigado.css';
 import Loader from '../../../components/Loader'
 
@@ -17,7 +17,7 @@ const CancerHigado = () => {
           <>
             <Suspense fallback={<Loader />}>
               <Definition />
-              <button onClick={() => setActiveSection(activeSection + 1)} className='primerboton'>
+              <button onClick={() => setActiveSection(activeSection + 1)}>
                 Siguiente (sintomas)
               </button>
             </Suspense>
@@ -38,9 +38,8 @@ const CancerHigado = () => {
       case 4:
         return (
           <Suspense fallback={<Loader />}>
-            <Section4 />
-            <button onClick={() => setActiveSection(activeSection - 1)}
-              className='primerboton'>
+            <Prevention />
+            <button onClick={() => setActiveSection(activeSection - 1)}>
               Anterior (tratamiento)
             </button>
           </Suspense>
