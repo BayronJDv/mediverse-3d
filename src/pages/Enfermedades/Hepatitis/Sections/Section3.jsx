@@ -50,7 +50,7 @@ const Section3 = () => {
                 background
               />
               <OrbitControls enableZoom enablePan enableRotate />
-              <Text position={[0, -1, 2]} fontSize={0.5} color="red" maxWidth={2} anchorX="center" anchorY="middle">
+              <Text position={[0, -1, 2]} fontSize={0.5} color="red" maxWidth={5} anchorX="center" anchorY="middle">
                 ¡Presiona el botón!
               </Text>
               <Text3D

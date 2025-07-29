@@ -11,7 +11,8 @@ import Hepatitis from './pages/Enfermedades/Hepatitis/Hepatitis.jsx'
 import CancerHigado from './pages/Enfermedades/CancerHigado/CancerHigado.jsx'
 import Patologias from './pages/patologias/Patologias.jsx'
 import ProtectedRoute from './components/ProtectedRoute.jsx'
-import Resultados from './pages/Quiz/Resultados/Resultados.jsx'
+import Resultados from './pages/Quiz/Resultados/Resultados.jsx' 
+import Nosotros from './pages/Nosotros/Nosotros.jsx'
 import Quiz from './pages/Quiz/Quiz.jsx'
 
 
@@ -25,7 +26,8 @@ createRoot(document.getElementById('root')).render(
         <Route path="/Learn/HigadoGraso" element={<HigadoGraso />} />
         <Route path="/Learn/Hepatitis" element={<Hepatitis />} />
         <Route path="/Learn/CancerHigado" element={<CancerHigado />} />
-        <Route path="/Patologias" element={<Patologias />} />
+        <Route path="/Patologias" element={<Patologias />} /> 
+        <Route path="/Nosotros" element={<Nosotros />} />
         <Route
           path="/Quiz"
           element={

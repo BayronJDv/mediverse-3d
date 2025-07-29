@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef, Suspense } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, PerspectiveCamera, Loader, Environment, Html, Text3D, Text } from '@react-three/drei'
-import Interferon from '../modelos-3d/VialSyringe'
+import { Canvas, useLoader } from '@react-three/fiber'
+import { OrbitControls, PerspectiveCamera, Loader, Environment, Html, Text3D, Text, PositionalAudio } from '@react-three/drei'
+import Interferon from '../modelos-3d/VialSyringe' 
+import { AudioLoader } from 'three'
 
 import './Section4.css'
 import { useNavigate } from 'react-router-dom'
@@ -49,11 +50,11 @@ const Section4 = () => {
                 background
               />
               <OrbitControls enableZoom enablePan enableRotate />
-              <Text position={[0, -1, 2]} fontSize={0.5} color="red" maxWidth={2} anchorX="center" anchorY="middle">
+              <Text position={[0, -1, 2]} fontSize={0.5} color="red" maxWidth={5} anchorX="center" anchorY="middle">
                 ¡Presiona el botón!
               </Text>
               <Text3D
-                position={[-5.5, 2, 0]}
+                position={[-3.5, 2, 0]}
                 font="/fonts/ConsolaMono.json"
                 size={0.4}
                 height={0.2}
@@ -73,6 +74,12 @@ const Section4 = () => {
                 position={[positionX, 0, 0]} // <-- posición controlada
                 rotation={[0, -Math.PI / 2, 0]}
                 animate={rotate}
+              /> 
+              <PositionalAudio
+              url="/sounds/heart.mp3"
+              distance={20}
+              loop
+              autoplay
               />
 
               <Html position={[1, 0, 1.5]} transform occlude>

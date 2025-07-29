@@ -149,12 +149,12 @@ const Pregunta3D = ({ pregunta, indice, onImpacto, respuestaSeleccionada }) => {
         <boxGeometry args={[1.5, 1, 1]} />
         <meshStandardMaterial color={getColor()} />
         <Text
-          position={[0, 0.6, 0]}
+          position={[0.1, 0.7, 0.1]}
           fontSize={0.2}
           color="black"
           anchorX="center"
           anchorY="bottom"
-          maxWidth={1.4}
+          maxWidth={2.5}
         >
           {clave}: {texto}
         </Text>
@@ -191,7 +191,7 @@ const Pregunta3D = ({ pregunta, indice, onImpacto, respuestaSeleccionada }) => {
       </mesh>
 
       {/* Pregunta */}
-      <Text position={[0, 3.5, 0]} fontSize={0.3} color="white" maxWidth={8} textAlign="center">
+      <Text position={[0, 4, 0]} fontSize={0.7} color="white" maxWidth={20} textAlign="center">
         {pregunta.pregunta}
       </Text>
 
