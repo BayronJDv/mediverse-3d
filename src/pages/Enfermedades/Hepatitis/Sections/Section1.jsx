@@ -66,7 +66,7 @@ const Section1 = () => {
                 position={[0, -1, 2]}
                 fontSize={0.5}
                 color="red"
-                maxWidth={2}
+                maxWidth={5}
                 anchorX="center"
                 anchorY="middle"
               >
