@@ -1,12 +1,19 @@
 .patologias {
   padding: 2rem;
   text-align: center;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  
 }
 
 .descripcion {
   max-width: 700px;
   margin: 0 auto 2rem;
+  
 }
 
 .descripcion img.higado-imagen {
@@ -18,7 +25,7 @@
 .opciones {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* 2 columnas fijas */
-  gap: 1rem; /* Espacio más reducido entre elementos */
+  gap: 5rem; /* Espacio más reducido entre elementos */
   justify-items: center;
   max-width: 600px; /* Más estrecho que antes */
   margin: 2rem auto 0 auto; /* Centrado */

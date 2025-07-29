@@ -7,7 +7,9 @@ const Patologias = () => {
       <h1>El hígado y sus patologías más comunes</h1>
       <div className="descripcion">
         <img src="/images/higado.png" alt="Hígado" className="higado-imagen" />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+        <p>
+          El hígado es un órgano vital que desempeña funciones esenciales como la desintoxicación de la sangre, la producción de bilis y el almacenamiento de nutrientes. Sin embargo, puede verse afectado por diversas enfermedades que comprometen su funcionamiento. Conocer estas patologías es clave para su prevención y tratamiento oportuno.
+        </p>
       </div>
 
       <h2>Selecciona una patología para aprender más</h2>
