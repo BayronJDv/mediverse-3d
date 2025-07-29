@@ -5,22 +5,22 @@ const integrantes = [
   {
     nombre: 'Bayron Jojoa',
     rol: 'Estudiante de Ingeniería de Sistemas',
-    foto: 'public/images/usuario1.png', // Placeholder para la foto
+    foto: '/images/usuario1.png', // Placeholder para la foto
   },
   {
     nombre: 'Zammir Andrade',
     rol: 'Estudiante de Ingeniería de Sistemas',
-    foto: 'public/images/usuario2.png', // Placeholder para la foto
+    foto: '/images/usuario2.png', // Placeholder para la foto
   },
   {
     nombre: 'Venus Paipilla',
     rol: 'Estudiante de Ingeniería de Sistemas',
-    foto: 'public/images/usuario3.png', // Placeholder para la foto
+    foto: '/images/usuario3.png', // Placeholder para la foto
   },
   {
     nombre: 'David Enciso',
     rol: 'Estudiante de Ingeniería de Sistemas',
-    foto: 'public/images/usuario4.png', // Placeholder para la foto
+    foto: '/images/usuario4.png', // Placeholder para la foto
   },
   // Agrega más integrantes si es necesario
 ];
@@ -43,12 +43,12 @@ export default function Nosotros() {
         </p> 
         <div className="imagenes-container2">
             <img
-            src="public/images/univalle.png"
+            src="/images/univalle.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image2"
             /> 
             <img
-            src="public/images/eisc.png"
+            src="/images/eisc.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image2"
             />
@@ -65,12 +65,12 @@ export default function Nosotros() {
         </p> 
         <div className="imagenes-container">
             <img
-            src="public/images/capturablender.png"
+            src="/images/capturablender.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image"
             /> 
             <img
-            src="public/images/capturablender2.png"
+            src="/images/capturablender2.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image"
             />
@@ -88,22 +88,22 @@ export default function Nosotros() {
         </p>
         <div className="imagenes-container">
             <img
-            src="public/images/figma.png"
+            src="/images/figma.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image1"
             /> 
             <img
-            src="public/images/blender.png"
+            src="/images/blender.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image1"
             /> 
             <img
-            src="public/images/threejs.png"
+            src="/images/threejs.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image1"
             /> 
             <img
-            src="public/images/react.png"
+            src="/images/react.png"
             alt="Imagen de tecnologías utilizadas"
             className="section-image1"
             />
