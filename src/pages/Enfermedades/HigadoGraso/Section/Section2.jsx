@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber'
 import { OrbitControls, PerspectiveCamera, Environment } from '@react-three/drei'
 import { useKeyboardControls } from '@react-three/drei'
 import ILights from '../Lights/ILights'
+import HigadoCirrotico from '../modelos-3d/HigadoModel'
 import './Section2.css'
 import Tittle from '../Text/Tittle'
 import Textohtml from '../Text/Textohtml'
@@ -29,10 +30,19 @@ const Section2 = () => {
               position={[0.29, 0.2, 2]}
               lookAt={[-0.21 - 0.04 - 0.98]}
             />
+            {/* Iluminación diferente: luz azulada y luz puntual roja para cambiar el color del modelo */}
+            <ambientLight intensity={1} color="#ff0000ff" />
+            <pointLight position={[2, 3, 2]} intensity={1.5} color="#ff3a3a" castShadow shadow-mapSize-width={1024} shadow-mapSize-height={1024} />
             <ILights />
             <Environment preset="city" background />
-            <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} lookAt={[0, 1, 0]} />
-
+            <OrbitControls enableZoom={true} enablePan={true} enableRotate={true} />
+            {/* Modelo HigadoModel centrado */}
+            <HigadoCirrotico
+              position={[0, 0, 0]}
+              scale={[0.2, 0.2, 0.2]}
+              castShadow
+              receiveShadow
+            />
             {/* Texto 3D para distencion abdominal */}
             <Text3D
               position={[-0.3, 0.5, 0]}
@@ -43,8 +53,6 @@ const Section2 = () => {
             >distensión abdominal
               <meshStandardMaterial color="black" />
             </Text3D>
-
-
             {/* Zona clickeable para mostrar tooltip */}
             <mesh
               position={[0.40, 0.3, 0]}
@@ -52,19 +60,16 @@ const Section2 = () => {
                 e.stopPropagation();
                 setTooltipVisible(!tooltipVisible);
               }}
-              onPointerOver={(e) => {
+              onPointerOver={() => {
                 document.body.style.cursor = 'pointer';
               }}
-              onPointerOut={(e) => {
+              onPointerOut={() => {
                 document.body.style.cursor = 'default';
               }}
             >
               <sphereGeometry args={[0.03, 10, 10]} />
               <meshStandardMaterial color="rgb(127, 27, 27)" />
-
             </mesh>
-            
-
             {/* Tooltip condicional */}
             <Textohtml
               visible={tooltipVisible}
@@ -72,14 +77,12 @@ const Section2 = () => {
               position={[0.45, 0.35, 0]}
               distanceFactor={0.8}
             />
-
             <Tittle tittle={"sintomas"} position={[0.25, -0.25, 0]} />
-            <Tittle tittle={"sintomas"} position={[-0.25, -0.25, 0]} />
-
-            {/* Suelo */}
+            <Tittle tittle={"los"} position={[-0.25, -0.25, 0]} />
+            {/* Suelo con sombra de color diferente */}
             <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
               <planeGeometry args={[50, 50]} />
-              <meshPhongMaterial color="white" />
+              <meshPhongMaterial color="#e0f7fa" />
             </mesh>
           </Canvas>
         </div>

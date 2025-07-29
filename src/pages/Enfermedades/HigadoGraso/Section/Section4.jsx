@@ -73,6 +73,12 @@ const Section1 = () => {
                             <planeGeometry args={[5, 5]} />
                             <meshPhongMaterial color="white" />
                         </mesh>
+                                      <HigadoCirrotico
+                                        position={[0, 0, 0]}
+                                        scale={[0.2, 0.2, 0.2]}
+                                        castShadow
+                                        receiveShadow
+                                      />
                         <Controls />
                     </Canvas>
                     </KeyboardControls>

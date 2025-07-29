@@ -45,8 +45,25 @@ const Section1 = () => {
             <Canvas shadows={true}>
               {/* Cámara más alejada */}
               <PerspectiveCamera makeDefault position={[1.5, 0.7, 1.5]} />
-              <Clights />
+              {/* Iluminación principal para el modelo */}
+              <ambientLight intensity={0.5} color="#fffbe7" />
+              <directionalLight
+                position={[2, 4, 2]}
+                intensity={1.2}
+                color="#ffd700"
+                castShadow
+                shadow-mapSize-width={1024}
+                shadow-mapSize-height={1024}
+                shadow-bias={-0.0001}
+              />
               <Environment preset="warehouse" background />
+              {/* HigadoModel centrado */}
+              <HigadoCirrotico
+                position={[0, 0, 0]}
+                scale={[0.2, 0.2, 0.2]}
+                castShadow
+                receiveShadow
+              />
               {/* Texto 3D para distencion abdominal */}
               <Text3D
                 position={[-0.5, 0.5, 0]}
@@ -56,10 +73,9 @@ const Section1 = () => {
                 curveSegments={32}
               >Tratamiento
                 <meshStandardMaterial color="black" />
+                
               </Text3D>
-
-              
-
+              {/* Sombra en el suelo */}
               <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
                 <planeGeometry args={[5, 5]} />
                 <meshPhongMaterial color="white" />

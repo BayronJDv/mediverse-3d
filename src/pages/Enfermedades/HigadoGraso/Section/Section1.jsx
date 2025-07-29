@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import HigadoCirrotico from '../modelos-3d/HigadoModel'
 import Clights from '../Lights/Clights'
@@ -16,6 +16,29 @@ const Section1 = () => {
         []
     );
     const [showText, setShowText] = React.useState(null);
+    const [showInstructions, setShowInstructions] = React.useState(false);
+    const [keyboardEvent, setKeyboardEvent] = React.useState(null);
+    const higadoRef = useRef();
+
+    // Estados para rotación del modelo
+    const [rotation, setRotation] = React.useState([0, 0, 0]);
+    // Estado para la escala del modelo
+    const [scale, setScale] = React.useState(1);
+
+    // Manejo de teclas para el modelo
+    const handleKeyDown = (e) => {
+        if (e.code === "KeyA") {
+            setRotation(([x, y, z]) => [x, y + 0.3, z]);
+            setKeyboardEvent("a");
+        } else if (e.code === "KeyS") {
+            setRotation([0, 0, 0]);
+            setKeyboardEvent("s");
+        } else if (e.code === "KeyD") {
+            setRotation(([x, y, z]) => [x, y - 0.3, z]);
+            setKeyboardEvent("d");
+        }
+    };
+    const handleKeyUp = () => setKeyboardEvent(null);
 
     return (
         <div className='cirrocis'>
@@ -63,7 +86,7 @@ El hígado graso es una condición en la que se acumulan lípidos en exceso en l
                                 fontWeight: 600,
                                 minWidth: 90
                             }}
-                            onClick={() => setShowText(showText === 1 ? null : 1)}
+                            onClick={() => { setShowText(showText === 1 ? null : 1); setShowInstructions(false); }}
                         >
                             ¿Qué es?
                         </button>
@@ -78,7 +101,7 @@ El hígado graso es una condición en la que se acumulan lípidos en exceso en l
                                 fontWeight: 600,
                                 minWidth: 90
                             }}
-                            onClick={() => setShowText(showText === 2 ? null : 2)}
+                            onClick={() => { setShowText(showText === 2 ? null : 2); setShowInstructions(false); }}
                         >
                             ¿Riesgos?
                         </button>
@@ -93,7 +116,7 @@ El hígado graso es una condición en la que se acumulan lípidos en exceso en l
                                 fontWeight: 600,
                                 minWidth: 90
                             }}
-                            onClick={() => setShowText(showText === 3 ? null : 3)}
+                            onClick={() => { setShowText(showText === 3 ? null : 3); setShowInstructions(false); }}
                         >
                             Prevención
                         </button>
@@ -108,16 +131,72 @@ El hígado graso es una condición en la que se acumulan lípidos en exceso en l
                                 fontWeight: 600,
                                 minWidth: 90
                             }}
-                            onClick={() => setShowText(showText === 4 ? null : 4)}
+                            onClick={() => { setShowText(showText === 4 ? null : 4); setShowInstructions(false); }}
                         >
                             Tratamiento
                         </button>
+                        <button
+                            style={{
+                                padding: 8,
+                                borderRadius: 6,
+                                border: '1px solid #888',
+                                background: '#a32121',
+                                color: '#fff',
+                                cursor: 'pointer',
+                                fontWeight: 600,
+                                minWidth: 110
+                            }}
+                            onClick={() => { setShowInstructions(!showInstructions); setShowText(null); }}
+                        >
+                            Instrucciones
+                        </button>
                     </div>
                     <KeyboardControls map={map} >
-                        <Canvas shadows={true}>
+                        <Canvas
+                            shadows={true}
+                            tabIndex={0}
+                            onKeyDown={handleKeyDown}
+                            onKeyUp={handleKeyUp}
+                            style={{ outline: 'none' }}
+                            // Solo escala el modelo con Ctrl+rueda, sin mover la cámara ni el fondo
+                            onWheel={e => {
+                                if (e.ctrlKey) {
+                                    e.preventDefault();
+                                    setScale(prev =>
+                                        Math.max(0.3, Math.min(2, prev + (e.deltaY < 0 ? 0.1 : -0.1)))
+                                    );
+                                }
+                            }}
+                            camera={{ position: [1.5, 0.7, 1.5] }} // Fija la cámara para evitar zoom del fondo
+                        >
                             {/* Cámara más alejada */}
                             <PerspectiveCamera makeDefault position={[1.5, 0.7, 1.5]} />
-                            <Clights />
+                            {/* Iluminación principal */}
+                            <ambientLight intensity={0.5} />
+                            <directionalLight
+                                position={[2, 4, 2]}
+                                intensity={1.2}
+                                castShadow
+                                shadow-mapSize-width={1024}
+                                shadow-mapSize-height={1024}
+                                shadow-bias={-0.0001}
+                            />
+                            {/* Modelo 3D centrado con rotación, escala y sombra */}
+                            <group position={[0, 0, 0]}>
+                                <HigadoCirrotico
+                                    ref={higadoRef}
+                                    position={[0, 0, 0]}
+                                    rotation={rotation}
+                                    scale={scale}
+                                    castShadow
+                                    receiveShadow
+                                />
+                            </group>
+                            {/* Sombra en el suelo */}
+                            <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
+                                <planeGeometry args={[5, 5]} />
+                                <meshPhongMaterial color="white" />
+                            </mesh>
                             <Environment preset="sunset" background />
                             {/* Mostrar solo un texto, centrado */}
                             {showText === 1 && (
@@ -184,11 +263,76 @@ El hígado graso es una condición en la que se acumulan lípidos en exceso en l
                                     </div>
                                 </Html>
                             )}
-                            <mesh receiveShadow={true} rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.5, 0]}>
-                                <planeGeometry args={[5, 5]} />
-                                <meshPhongMaterial color="white" />
-                            </mesh>
-                            <Controls />
+                            {/* Instrucciones resumidas */}
+                            {showInstructions && (
+                                <Html position={[0, 0.3, 0]} center>
+                                    <div style={{
+                                        background: '#fff',
+                                        color: '#a32121',
+                                        padding: 10,
+                                        borderRadius: 8,
+                                        border: '1px solid #888',
+                                        maxWidth: 320,
+                                        fontWeight: 600,
+                                        textAlign: 'center'
+                                    }}>
+                                        Usa A/S/D para rotar o centrar el hígado.<br />
+                                        Haz clic en los botones para ver información.
+                                    </div>
+                                </Html>
+                            )}
+                            {/* Eventos de teclado sobre el modelo */}
+                            {keyboardEvent === "a" && (
+                                <Html position={[0, 0.6, 0]} center>
+                                    <div style={{
+                                        background: '#fff',
+                                        color: '#a32121',
+                                        padding: 10,
+                                        borderRadius: 8,
+                                        border: '1px solid #888',
+                                        maxWidth: 220,
+                                        fontWeight: 600,
+                                        textAlign: 'center'
+                                    }}>
+                                        Tecla A: Rotar hígado a la izquierda.
+                                    </div>
+                                </Html>
+                            )}
+                            {keyboardEvent === "s" && (
+                                <Html position={[0, 0.6, 0]} center>
+                                    <div style={{
+                                        background: '#fff',
+                                        color: '#a32121',
+                                        padding: 10,
+                                        borderRadius: 8,
+                                        border: '1px solid #888',
+                                        maxWidth: 220,
+                                        fontWeight: 600,
+                                        textAlign: 'center'
+                                    }}>
+                                        Tecla S: Centrar hígado.
+                                    </div>
+                                </Html>
+                            )}
+                            {keyboardEvent === "d" && (
+                                <Html position={[0, 0.6, 0]} center>
+                                    <div style={{
+                                        background: '#fff',
+                                        color: '#a32121',
+                                        padding: 10,
+                                        borderRadius: 8,
+                                        border: '1px solid #888',
+                                        maxWidth: 220,
+                                        fontWeight: 600,
+                                        textAlign: 'center'
+                                    }}>
+                                        Tecla D: Rotar hígado a la derecha.
+                                    </div>
+                                </Html>
+                            )}
+                            <Controls
+                                enableZoom={false} // Desactiva zoom de cámara para que solo el modelo cambie de escala
+                            />
                         </Canvas>
                     </KeyboardControls>
                 </div>
